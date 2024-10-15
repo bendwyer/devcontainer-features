@@ -11,4 +11,4 @@ jobs:
     permissions:
       contents: write
       packages: write
-    uses: bendwyer/github-workflows/.github/workflows/devcontainer-features-release.yml@add-devcontainer-feature-workflows
+    uses: bendwyer/github-workflows/.github/workflows/devcontainer-features-release.yml@main
