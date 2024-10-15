@@ -9,3 +9,5 @@ jobs:
     permissions:
       pull-requests: read
     uses: bendwyer/github-workflows/.github/workflows/devcontainer-features-test.yml@add-devcontainer-feature-workflows
+    with:
+      filter_file_path: ./.github/filters.yml
