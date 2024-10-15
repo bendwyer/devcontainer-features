@@ -6,4 +6,4 @@ on:
 
 jobs:
   validate:
-    uses: bendwyer/github-workflows/.github/workflows/devcontainer-features-validate.yml@add-devcontainer-feature-workflows
+    uses: bendwyer/github-workflows/.github/workflows/devcontainer-features-validate.yml@main
