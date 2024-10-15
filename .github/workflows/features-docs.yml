@@ -1,13 +1,13 @@
 ---
-  name: features-docs
+name: features-docs
 
-  on:
-    pull_request:
+on:
+  pull_request:
 
-  jobs:
-    docs:
-      uses: bendwyer/github-workflows/.github/workflows/devcontainer-features-documentation.yml@add-devcontainer-feature-workflows
-      with:
-        gh_app_id: ${{ vars.GH_APP_ID }}
-      secrets:
-        gh_app_private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+jobs:
+  docs:
+    uses: bendwyer/github-workflows/.github/workflows/devcontainer-features-documentation.yml@add-devcontainer-feature-workflows
+    with:
+      gh_app_id: ${{ vars.GH_APP_ID }}
+    secrets:
+      gh_app_private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}

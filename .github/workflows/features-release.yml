@@ -1,12 +1,11 @@
 ---
-  name: features-release
-  
-  on:
-    push:
-      branches:
-        - main
-  
-  jobs:
-    release:
-      uses: bendwyer/github-workflows/.github/workflows/devcontainer-features-release.yml@add-devcontainer-feature-workflows
-  
+name: features-release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    uses: bendwyer/github-workflows/.github/workflows/devcontainer-features-release.yml@add-devcontainer-feature-workflows

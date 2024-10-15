@@ -1,10 +1,9 @@
 ---
-  name: features-validate
-  
-  on:
-    pull_request:
-  
-  jobs:
-    validate:
-      uses: bendwyer/github-workflows/.github/workflows/devcontainer-features-validate.yml@add-devcontainer-feature-workflows
-  
+name: features-validate
+
+on:
+  pull_request:
+
+jobs:
+  validate:
+    uses: bendwyer/github-workflows/.github/workflows/devcontainer-features-validate.yml@add-devcontainer-feature-workflows
