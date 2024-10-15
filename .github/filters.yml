@@ -1,3 +1,5 @@
 ---
+color: ./**/color/**
+hello: ./**/hello/**
 terraform: ./**/terraform/**
 tflint: ./**/tflint/**
