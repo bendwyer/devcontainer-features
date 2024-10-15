@@ -1,0 +1,9 @@
+---
+name: features-test
+
+on:
+  pull_request:
+
+jobs:
+  test:
+    uses: bendwyer/github-workflows/.github/workflows/devcontainer-features-test.yml@add-devcontainer-feature-workflows
