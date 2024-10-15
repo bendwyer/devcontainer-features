@@ -1,0 +1,10 @@
+{
+  "terraform_version": {
+    "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+    "features": {
+      "terraform": {
+        "version": "1.8"
+      }
+    }
+  }
+}

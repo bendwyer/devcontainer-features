@@ -1,0 +1,45 @@
+{
+  "name": "Terraform",
+  "id": "terraform",
+  "version": "1.0.0",
+  "description": "Installs the Terraform CLI.",
+  "options": {
+    "version": {
+      "type": "string",
+      "proposals": [
+        "latest",
+        "1.9",
+        "1.0",
+        "0.15"
+      ],
+      "default": "latest",
+      "description": "Terraform version"
+    },
+    "installTerraformDocs": {
+      "type": "boolean",
+      "default": false,
+      "description": "Install terraform-docs"
+    },
+    "httpProxy": {
+      "type": "string",
+      "default": "",
+      "description": "Connect to a keyserver using a proxy by configuring this option"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "HashiCorp.terraform"
+      ],
+      "settings": {
+        "terraform.languageServer.enable": true,
+        "terraform.languageServer.args": [
+          "serve"
+        ]
+      }
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
+}
