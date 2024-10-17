@@ -3,6 +3,11 @@ name: features-validate
 
 on:
   pull_request:
+    branches:
+      - main
+    paths:
+      - "src/**"
+      - "!*.md"
 
 jobs:
   validate:

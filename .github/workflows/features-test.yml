@@ -3,6 +3,11 @@ name: features-test
 
 on:
   pull_request:
+    branches:
+      - main
+    paths:
+      - "src/**"
+      - "!*.md"
 
 jobs:
   test:
