@@ -3,10 +3,12 @@ name: features-docs
 
 on:
   pull_request:
+    branches:
+      - main
 
 jobs:
   docs:
-    uses: bendwyer/github-workflows/.github/workflows/devcontainer-features-documentation.yml@change-docs-generation-trigger
+    uses: bendwyer/github-workflows/.github/workflows/devcontainer-features-documentation.yml@main
     with:
       gh_app_id: ${{ vars.GH_APP_ID }}
     secrets:
