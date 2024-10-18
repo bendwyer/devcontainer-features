@@ -16,7 +16,6 @@ Installs the Terraform CLI.
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | version | Terraform version | string | latest |
-| installTerraformDocs | Install terraform-docs | boolean | false |
 | httpProxy | Connect to a keyserver using a proxy by configuring this option | string | - |
 
 ## Customizations
