@@ -1,7 +1,7 @@
 {
   "name": "Terraform",
   "id": "terraform",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Installs the Terraform CLI.",
   "options": {
     "version": {
@@ -14,11 +14,6 @@
       ],
       "default": "latest",
       "description": "Terraform version"
-    },
-    "installTerraformDocs": {
-      "type": "boolean",
-      "default": false,
-      "description": "Install terraform-docs"
     },
     "httpProxy": {
       "type": "string",
