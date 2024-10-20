@@ -1,9 +1,19 @@
 {
-  "terraform_version": {
-    "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+  "terraform_version_short_debian": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian",
     "features": {
       "terraform": {
-        "version": "1.8"
+        "version": "1.8",
+        "autocomplete": false
+      }
+    }
+  },
+  "terraform_version_short_ubuntu": {
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+      "terraform": {
+        "version": "1.8",
+        "autocomplete": false
       }
     }
   }
