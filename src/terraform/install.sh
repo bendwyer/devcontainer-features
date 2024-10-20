@@ -9,7 +9,7 @@ set -e
 rm -rf /var/lib/apt/lists/*
 
 TERRAFORM_VERSION="${VERSION:-"latest"}"
-
+TERRAFORM_AUTOCOMPLETE=${AUTOCOMPLETE:-true}
 TERRAFORM_SHA256="${TERRAFORM_SHA256:-"automatic"}"
 
 TERRAFORM_GPG_KEY="72D7468F"
@@ -342,6 +342,41 @@ unzip ${terraform_filename}
 mv -f terraform /usr/local/bin/
 
 rm -rf /tmp/tf-downloads ${GNUPGHOME}
+
+# install terraform autocomplete command
+if [ "${TERRAFORM_AUTOCOMPLETE}" = "true" ]; then
+    echo "Installing Terraform shell tab-completion..."
+    check_packages sudo
+    sudo -iu "$_REMOTE_USER" <<EOF
+        # https://github.com/devcontainers-contrib/features/blob/9a1d24b27b2d1ea8916ebe49c9ce674375dced27/src/pulumi/install.sh
+        set -eo pipefail
+        if [ "$_REMOTE_USER" == "root" ]; then
+            USER_LOCATION="/root"
+            echo "$_REMOTE_USER HOME is \$USER_LOCATION"
+        else
+            USER_LOCATION="/home/$_REMOTE_USER"
+            echo "$_REMOTE_USER HOME is \$USER_LOCATION"
+        fi
+        cd \$USER_LOCATION
+        echo "Changed to \$USER_LOCATION"
+        if [ -n "$($SHELL -c 'echo $BASH_VERSION')" ]; then
+            echo "$SHELL detected"
+            if [ ! -f "\$USER_LOCATION/.bashrc" ] || [ ! -s "\$USER_LOCATION/.bashrc" ]; then
+                echo ".bashrc missing"
+                sudo cp  /etc/skel/.bashrc "\$USER_LOCATION/.bashrc"
+                echo ".bashrc copied"
+            fi
+            if  [ ! -f "\$USER_LOCATION/.profile" ] || [ ! -s "\$USER_LOCATION/.profile" ]; then
+                echo ".profile missing"
+                sudo cp  /etc/skel/.profile "\$USER_LOCATION/.profile"
+                echo ".profile copied"
+            fi
+            terraform -install-autocomplete
+            . \$USER_LOCATION/.bashrc
+            echo "Terraform bash tab-completion installed successfully!"
+        fi
+EOF
+fi
 
 # Clean up
 rm -rf /var/lib/apt/lists/*
