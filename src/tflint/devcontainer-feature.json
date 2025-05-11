@@ -1,8 +1,8 @@
 {
   "id": "tflint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "tflint (via Github Releases)",
-  // "documentationURL": "http://github.com/devcontainers-contrib/features/tree/main/src/terraform-docs",
+  "documentationURL": "https://github.com/bendwyer/devcontainer-features/tree/main/src/tflint",
   "description": "tflint is a pluggable Terraform linter.",
   "options": {
     "version": {
@@ -15,6 +15,6 @@
     }
   },
   "installsAfter": [
-    "ghcr.io/devcontainers-contrib/features/gh-release"
+    "ghcr.io/devcontainers-extra/features/gh-release"
   ]
 }
