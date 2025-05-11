@@ -29,7 +29,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "HashiCorp.terraform"
+        "hashicorp.terraform"
       ],
       "settings": {
         "terraform.languageServer.enable": true,
