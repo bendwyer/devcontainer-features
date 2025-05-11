@@ -121,9 +121,10 @@ ensure_nanolayer() {
         if ! [[ -z "${nanolayer_location}" ]]; then
             local current_version
             current_version=$($nanolayer_location --version)
-            echo "nanolayer current_version: $current_version"
+            # echo "nanolayer current_version=$current_version"
             if ! [[ $current_version == v* ]]; then
                 current_version=v$current_version
+                echo "nanolayer current_version=$current_version"
             fi
 
             if ! [ $current_version == $required_version ]; then
