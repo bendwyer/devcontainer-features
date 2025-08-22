@@ -1,0 +1,29 @@
+{
+  "id": "claude-code",
+  "version": "1.0.0",
+  "name": "Claude Code",
+  "documentationURL": "https://docs.anthropic.com/en/docs/claude-code/overview",
+  "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
+  "options": {
+    "version": {
+      "default": "stable",
+      "description": "Select the version to install.",
+      "proposals": [
+        "stable",
+        "latest",
+        "1.0.81"
+      ],
+      "type": "string"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Anthropic.claude-code"
+      ]
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
+}
