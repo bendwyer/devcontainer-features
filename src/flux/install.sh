@@ -8,6 +8,16 @@ FLUX_VERSION=${VERSION:-"latest"}
 
 export DEBIAN_FRONTEND=noninteractive
 
+echo "Checking if curl is installed..."
+if type curl > /dev/null 2>&1; then
+    echo "curl already installed. Skipping..."
+else
+  echo "Installing curl...'"
+  apt-get -yq update
+  apt-get -yq install curl
+  echo "curl installation complete!"
+fi
+
 echo "Checking if flux is installed..."
 if [ "${FLUX_VERSION}" = "none" ] || type flux > /dev/null 2>&1; then
     echo "flux already installed. Skipping..."
