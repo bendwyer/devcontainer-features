@@ -1,0 +1,27 @@
+{
+  "id": "flux",
+  "version": "1.0.0",
+  "name": "Flux",
+  "documentationURL": "https://fluxcd.io/flux/cmd/",
+  "description": "Open and extensible continuous delivery solution for Kubernetes. Powered by GitOps Toolkit.",
+  "options": {
+    "version": {
+      "default": "latest",
+      "description": "Select the version to install.",
+      "proposals": [
+        "latest"
+      ],
+      "type": "string"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-kubernetes-tools.vscode-kubernetes-tools"
+      ]
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
+}
