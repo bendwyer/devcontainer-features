@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Original script: https://claude.ai/install.sh
 # Modified to accept dev container feature inputs and moved to /usr/local/bin
@@ -17,9 +17,17 @@ fi
 GCS_BUCKET="https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases"
 DOWNLOAD_DIR="$HOME/.claude/downloads"
 
-# Ensure curl is installed
-apt-get update -qy
-apt-get install -qy curl
+export DEBIAN_FRONTEND=noninteractive
+
+echo "Checking if curl is installed..."
+if type curl > /dev/null 2>&1; then
+    echo "curl already installed. Skipping..."
+else
+  echo "Installing curl..."
+  apt-get -yq update
+  apt-get -yq install curl
+  echo "curl installation complete!"
+fi
 
 # Check for required dependencies
 DOWNLOADER=""
