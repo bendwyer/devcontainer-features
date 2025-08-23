@@ -9,7 +9,7 @@ source dev-container-features-test-lib
 check "user" whoami
 check " permissions" ls -la /usr/local/bin/kustomize
 check "kustomize location" which kustomize
-check "kustomize version" kustomize --version
+check "kustomize version" kustomize version
 
 # Report result
 reportResults
