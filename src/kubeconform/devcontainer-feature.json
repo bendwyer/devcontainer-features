@@ -1,0 +1,28 @@
+{
+  "id": "kubeconform",
+  "version": "1.0.0",
+  "name": "Kubeconform",
+  "documentationURL": "https://github.com/yannh/kubeconform?tab=readme-ov-file#usage",
+  "description": "Kubeconform is a Kubernetes manifest validation tool.",
+  "options": {
+    "version": {
+      "default": "latest",
+      "description": "Select the version to install. Anything that is not 'latest' must be in 'v#.#.#' format.",
+      "proposals": [
+        "latest",
+        "v0.7.0"
+      ],
+      "type": "string"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-kubernetes-tools.vscode-kubernetes-tools"
+      ]
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
+}
