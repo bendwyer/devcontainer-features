@@ -27,7 +27,7 @@ if [ "${KUBECONFORM_VERSION}" = "none" ] || type kubeconform > /dev/null 2>&1; t
     echo "kubeconform already installed. Skipping..."
 else
   echo "Installing kubeconform..."
-  curl -sL https://github.com/yannh/kubeconform/releases/download/${$KUBECONFORM_VERSION}/kubeconform-linux-${KUBECONFORM_ARCH}.tar.gz | tar xzf - -C /usr/local/bin/ kubeconform
+  curl -sL https://github.com/yannh/kubeconform/releases/download/${KUBECONFORM_VERSION}/kubeconform-linux-${KUBECONFORM_ARCH}.tar.gz | tar xzf - -C /usr/local/bin/ kubeconform
 fi
 
 set +e
