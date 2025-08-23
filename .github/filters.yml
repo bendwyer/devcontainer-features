@@ -1,4 +1,5 @@
 ---
 claude-code: ./**/claude-code/**
+flux: ./**/flux/**
 terraform: ./**/terraform/**
 tflint: ./**/tflint/**
