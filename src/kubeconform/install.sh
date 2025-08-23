@@ -30,7 +30,7 @@ else
   if [ "${KUBECONFORM_VERSION}" = "latest" ] ; then
     curl -sL https://github.com/yannh/kubeconform/releases/latest/download/kubeconform-linux-${KUBECONFORM_ARCH}.tar.gz | tar xzf - -C /usr/local/bin/ kubeconform
   else
-    curl -s https://github.com/yannh/kubeconform/releases/download/${KUBECONFORM_VERSION}/kubeconform-linux-${KUBECONFORM_ARCH}.tar.gz | tar xzf - -C /usr/local/bin/ kubeconform
+    curl -sL https://github.com/yannh/kubeconform/releases/download/${KUBECONFORM_VERSION}/kubeconform-linux-${KUBECONFORM_ARCH}.tar.gz | tar xzf - -C /usr/local/bin/ kubeconform
   fi
 fi
 

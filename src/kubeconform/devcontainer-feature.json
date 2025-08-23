@@ -1,6 +1,6 @@
 {
   "id": "kubeconform",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Kubeconform",
   "documentationURL": "https://github.com/yannh/kubeconform?tab=readme-ov-file#usage",
   "description": "Kubeconform is a Kubernetes manifest validation tool.",
