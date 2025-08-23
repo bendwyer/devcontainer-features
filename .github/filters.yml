@@ -1,6 +1,7 @@
 ---
 claude-code: ./**/claude-code/**
 flux: ./**/flux/**
+kube-linter: ./**/kube-linter/**
 kubeconform: ./**/kubeconform/**
 kustomize: ./**/kustomize/**
 terraform: ./**/terraform/**
