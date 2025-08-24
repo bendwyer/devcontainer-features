@@ -54,7 +54,7 @@ if [ "${PRODUCT_AUTOCOMPLETE}" = "true" ]; then
     # https://github.com/devcontainers-contrib/features/blob/9a1d24b27b2d1ea8916ebe49c9ce674375dced27/src/pulumi/install.sh
     set -eo pipefail
     echo "PRODUCT_NAME=${PRODUCT_NAME}"
-    which ${PRODUCT_NAME}
+    which "${PRODUCT_NAME}"
     which packer
     ls /usr/local/bin/packer
     if [ "$_REMOTE_USER" == "root" ]; then
@@ -78,7 +78,7 @@ if [ "${PRODUCT_AUTOCOMPLETE}" = "true" ]; then
         sudo cp  /etc/skel/.profile "\$USER_LOCATION/.profile"
         echo ".profile copied"
       fi
-      ${PRODUCT_NAME} -autocomplete-install
+      "${PRODUCT_NAME}" -autocomplete-install
       . \$USER_LOCATION/.bashrc
       echo "${PRODUCT_NAME} bash autocompletion installed successfully!"
     fi
