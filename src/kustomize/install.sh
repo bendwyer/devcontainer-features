@@ -22,9 +22,9 @@ if [ "${KUSTOMIZE_VERSION}" = "none" ] || type kustomize > /dev/null 2>&1; then
 else
   echo "Installing kustomize..."
   if [ "${KUSTOMIZE_VERSION}" = "latest" ] ; then
-    curl -s https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh | bash -s -- /usr/local/bin
+    curl -sS https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh | bash -s -- /usr/local/bin
   else
-    curl -s https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh | bash -s -- $KUSTOMIZE_VERSION /usr/local/bin
+    curl -sS https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh | bash -s -- $KUSTOMIZE_VERSION /usr/local/bin
   fi
 fi
 

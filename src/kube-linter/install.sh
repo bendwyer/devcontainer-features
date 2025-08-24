@@ -28,9 +28,9 @@ if [ "${KUBE_LINTER_VERSION}" = "none" ] || type kube-linter > /dev/null 2>&1; t
 else
   echo "Installing kube-linter..."
   if [ "${KUBE_LINTER_VERSION}" = "latest" ] ; then
-    curl -sL https://github.com/stackrox/kube-linter/releases/latest/download/kube-linter-linux${KUBE_LINTER_ARCH} -o /usr/local/bin/kube-linter && chmod +x /usr/local/bin/kube-linter
+    curl -sSL https://github.com/stackrox/kube-linter/releases/latest/download/kube-linter-linux${KUBE_LINTER_ARCH} -o /usr/local/bin/kube-linter && chmod +x /usr/local/bin/kube-linter
   else
-    curl -sL https://github.com/stackrox/kube-linter/releases/download/${KUBE_LINTER_VERSION}/kube-linter-linux${KUBE_LINTER_ARCH} -o /usr/local/bin/kube-linter && chmod +x /usr/local/bin/kube-linter
+    curl -sSL https://github.com/stackrox/kube-linter/releases/download/${KUBE_LINTER_VERSION}/kube-linter-linux${KUBE_LINTER_ARCH} -o /usr/local/bin/kube-linter && chmod +x /usr/local/bin/kube-linter
   fi
 fi
 

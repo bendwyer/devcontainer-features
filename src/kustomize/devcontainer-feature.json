@@ -1,6 +1,6 @@
 {
   "id": "kustomize",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Kustomize",
   "documentationURL": "https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/",
   "description": "Kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.",

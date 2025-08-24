@@ -17,4 +17,5 @@ This feature is tested against the following architectures:
 
 | Version | Notes |
 | --- | --- |
+| 1.0.1 | Surface curl errors |
 | 1.0.0 | Initial release |
