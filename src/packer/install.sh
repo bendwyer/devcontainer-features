@@ -40,9 +40,9 @@ else
     echo "Checking if jq is installed..."
     check_packages jq
     PRODUCT_VERSION=$(curl -sL https://api.github.com/repos/hashicorp/${PRODUCT_NAME}/releases/latest | jq -r '.tag_name | split("v")[1]')
-    curl -sLO https://releases.hashicorp.com/${PRODUCT_NAME}/${PRODUCT_VERSION}/${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip && unzip -jq ${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip ${PRODUCT_NAME} -d /usr/local/bin/
+    curl -sLO https://releases.hashicorp.com/${PRODUCT_NAME}/${PRODUCT_VERSION}/${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip && unzip -jq ${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip ${PRODUCT_NAME} -d /usr/local/bin/ && chmod +x /usr/local/bin/${PRODUCT_NAME}
   else
-    curl -sLO https://releases.hashicorp.com/${PRODUCT_NAME}/${PRODUCT_VERSION}/${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip && unzip -jq ${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip ${PRODUCT_NAME} -d /usr/local/bin/
+    curl -sLO https://releases.hashicorp.com/${PRODUCT_NAME}/${PRODUCT_VERSION}/${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip && unzip -jq ${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip ${PRODUCT_NAME} -d /usr/local/bin/ && chmod +x /usr/local/bin/${PRODUCT_NAME}
   fi
   rm -f ${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip
 fi
