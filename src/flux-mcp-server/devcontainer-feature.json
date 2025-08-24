@@ -1,0 +1,28 @@
+{
+  "id": "flux-mcp-server",
+  "version": "1.0.0",
+  "name": "Flux MCP Server",
+  "documentationURL": "https://fluxcd.control-plane.io/mcp/",
+  "description": "The Flux Model Context Protocol (MCP) Server connects AI assistants like Claude, Cursor, GitHub Copilot, and others directly to your Kubernetes clusters running Flux Operator, enabling seamless interaction through natural language.",
+  "options": {
+    "version": {
+      "default": "latest",
+      "description": "Select the version to install. Anything that is not 'latest' must be in '#.#.#' format.",
+      "proposals": [
+        "latest",
+        "0.28.0"
+      ],
+      "type": "string"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-kubernetes-tools.vscode-kubernetes-tools"
+      ]
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
+}

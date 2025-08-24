@@ -1,6 +1,7 @@
 ---
 claude-code: ./**/claude-code/**
 flux: ./**/flux/**
+flux-mcp-server: ./**/flux-mcp-server/**
 kube-linter: ./**/kube-linter/**
 kubeconform: ./**/kubeconform/**
 kustomize: ./**/kustomize/**
