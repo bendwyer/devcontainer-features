@@ -75,6 +75,7 @@ if [ "${PRODUCT_AUTOCOMPLETE}" = "true" ]; then
         echo ".profile copied"
       fi
       echo "Message before problem line"
+      ls -la /usr/local/bin/
       $PRODUCT_NAME -autocomplete-install
       . \$USER_LOCATION/.bashrc
       echo "$PRODUCT_NAME bash autocompletion installed successfully!"
