@@ -14,25 +14,22 @@ fi
 
 export DEBIAN_FRONTEND=noninteractive
 
-echo "Checking if curl is installed..."
-if type curl > /dev/null 2>&1; then
-    echo "curl already installed. Skipping..."
-else
-  echo "Installing curl..."
-  apt-get -yq update
-  apt-get -yq install curl
-  echo "curl installation complete!"
-fi
+apt_get_update() {
+  if [ "$(find /var/lib/apt/lists/* | wc -l)" = "0" ]; then
+    echo "Running apt-get update..."
+    apt-get update -yq
+  fi
+}
 
-echo "Checking if unzip is installed..."
-if type unzip > /dev/null 2>&1; then
-    echo "unzip already installed. Skipping..."
-else
-  echo "Installing unzip..."
-  apt-get -yq update
-  apt-get -yq install unzip
-  echo "unzip installation complete!"
-fi
+check_packages() {
+  if ! dpkg -s "$@" > /dev/null 2>&1; then
+    apt_get_update
+    apt-get -yq install --no-install-recommends "$@"
+  fi
+}
+
+echo "Checking if curl and unzip are installed..."
+check_packages curl unzip
 
 echo "Checking if ${PRODUCT_NAME} is installed..."
 if [ "${PRODUCT_VERSION}" = "none" ] || type ${PRODUCT_NAME} > /dev/null 2>&1; then
@@ -41,14 +38,7 @@ else
   echo "Installing ${PRODUCT_NAME}..."
   if [ "${PRODUCT_VERSION}" = "latest" ] ; then
     echo "Checking if jq is installed..."
-    if type jq > /dev/null 2>&1; then
-        echo "jq already installed. Skipping..."
-    else
-      echo "Installing jq..."
-      apt-get -yq update
-      apt-get -yq install jq
-      echo "jq installation complete!"
-    fi
+    check_packages jq
     PRODUCT_VERSION=$(curl -sL https://api.github.com/repos/hashicorp/${PRODUCT_NAME}/releases/latest | jq -r '.tag_name | split("v")[1]')
     curl -sLO https://releases.hashicorp.com/${PRODUCT_NAME}/${PRODUCT_VERSION}/${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip && unzip -jq ${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip ${PRODUCT_NAME} -d /usr/local/bin/
   else
