@@ -28,6 +28,15 @@ if [ "${FLUX_MCP_SERVER_VERSION}" = "none" ] || type flux-operator-mcp > /dev/nu
 else
   echo "Installing flux mcp server..."
   if [ "${FLUX_MCP_SERVER_VERSION}" = "latest" ] ; then
+    echo "Checking if jq is installed..."
+    if type jq > /dev/null 2>&1; then
+        echo "jq already installed. Skipping..."
+    else
+      echo "Installing jq..."
+      apt-get -yq update
+      apt-get -yq install jq
+      echo "jq installation complete!"
+    fi
     FLUX_MCP_SERVER_RELEASE=$(curl -sL https://api.github.com/repos/controlplaneio-fluxcd/flux-operator/releases/latest | jq -r '.tag_name | split("v")[1]')
     curl -sL https://github.com/controlplaneio-fluxcd/flux-operator/releases/latest/download/flux-operator-mcp_${FLUX_MCP_SERVER_RELEASE}_linux_${FLUX_MCP_SERVER_ARCH}.tar.gz | tar xzf - -C /usr/local/bin/ flux-operator-mcp
   else
