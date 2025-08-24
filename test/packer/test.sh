@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Optional: Import test library bundled with the devcontainer CLI
+# See https://github.com/devcontainers/cli/blob/HEAD/docs/features/test.md#dev-container-features-test-lib
+# Provides the 'check' and 'reportResults' commands.
+source dev-container-features-test-lib
+
+# Feature-specific tests
+# The 'check' command comes from the dev-container-features-test-lib.
+echo ""
+echo "Running as $(whoami)"
+check "packer permissions" ls -la /usr/local/bin/packer
+check "packer location" which packer
+check "packer version" packer --version
+check "packer autocompletion" ./packer_autocompletion.sh "packer " "init"
+
+# Report result
+# If any of the checks above exited with a non-zero exit code, the test will fail.
+reportResults
