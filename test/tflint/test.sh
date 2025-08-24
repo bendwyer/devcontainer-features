@@ -2,11 +2,15 @@
 
 set -e
 
-# Import test library for `check` command
+# Optional: Import test library bundled with the devcontainer CLI
+# See https://github.com/devcontainers/cli/blob/HEAD/docs/features/test.md#dev-container-features-test-lib
+# Provides the 'check' and 'reportResults' commands.
 source dev-container-features-test-lib
 
-# tflint specific tests
+# Feature-specific tests
+# The 'check' command comes from the dev-container-features-test-lib.
 check "tflint" tflint --version
 
 # Report result
+# If any of the checks above exited with a non-zero exit code, the test will fail.
 reportResults
