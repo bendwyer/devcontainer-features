@@ -10,7 +10,7 @@ source dev-container-features-test-lib
 # Feature-specific tests
 # The 'check' command comes from the dev-container-features-test-lib.
 echo ""
-echo "Current user is $(whoami)"
+echo "Running as $(whoami)"
 check "terraform version" terraform --version
 
 # Report result
