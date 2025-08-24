@@ -40,15 +40,15 @@ else
     echo "Checking if jq is installed..."
     check_packages jq
     PRODUCT_VERSION=$(curl -sL https://api.github.com/repos/hashicorp/${PRODUCT_NAME}/releases/latest | jq -r '.tag_name | split("v")[1]')
-    curl -sLO https://releases.hashicorp.com/${PRODUCT_NAME}/${PRODUCT_VERSION}/${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip && unzip -jq ${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip ${PRODUCT_NAME} -d /usr/local/bin/ && chmod +x /usr/local/bin/${PRODUCT_NAME}
+    curl -sLO https://releases.hashicorp.com/${PRODUCT_NAME}/${PRODUCT_VERSION}/${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip && unzip -jq ${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip ${PRODUCT_NAME} -d /usr/local/bin/
   else
-    curl -sLO https://releases.hashicorp.com/${PRODUCT_NAME}/${PRODUCT_VERSION}/${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip && unzip -jq ${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip ${PRODUCT_NAME} -d /usr/local/bin/ && chmod +x /usr/local/bin/${PRODUCT_NAME}
+    curl -sLO https://releases.hashicorp.com/${PRODUCT_NAME}/${PRODUCT_VERSION}/${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip && unzip -jq ${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip ${PRODUCT_NAME} -d /usr/local/bin/
   fi
   rm -f ${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip
 fi
 
 if [ "${PRODUCT_AUTOCOMPLETE}" = "true" ]; then
-  echo "Installing ${PRODUCT_NAME} shell tab-completion..."
+  echo "Installing ${PRODUCT_NAME} bash autocompletion..."
   check_packages sudo
   sudo -iu "$_REMOTE_USER" <<EOF
     # https://github.com/devcontainers-contrib/features/blob/9a1d24b27b2d1ea8916ebe49c9ce674375dced27/src/pulumi/install.sh
@@ -74,9 +74,9 @@ if [ "${PRODUCT_AUTOCOMPLETE}" = "true" ]; then
         sudo cp  /etc/skel/.profile "\$USER_LOCATION/.profile"
         echo ".profile copied"
       fi
-      ${PRODUCT_NAME} -autocomplete-install
+      packer -autocomplete-install
       . \$USER_LOCATION/.bashrc
-      echo "${PRODUCT_NAME} bash tab-completion installed successfully!"
+      echo "packer bash autocompletion installed successfully!"
     fi
 EOF
 fi
