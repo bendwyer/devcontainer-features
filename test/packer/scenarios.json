@@ -1,0 +1,10 @@
+{
+  "packer_version": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian12",
+    "features": {
+      "packer": {
+        "version": "1.13.0"
+      }
+    }
+  }
+}
