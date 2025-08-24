@@ -5,5 +5,6 @@ flux-mcp-server: ./**/flux-mcp-server/**
 kube-linter: ./**/kube-linter/**
 kubeconform: ./**/kubeconform/**
 kustomize: ./**/kustomize/**
+packer: ./**/packer/**
 terraform: ./**/terraform/**
 tflint: ./**/tflint/**
