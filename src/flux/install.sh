@@ -24,9 +24,9 @@ if [ "${FLUX_VERSION}" = "none" ] || type flux > /dev/null 2>&1; then
 else
   echo "Installing flux..."
   if [ "${FLUX_VERSION}" = "latest" ] ; then
-    curl -s https://fluxcd.io/install.sh | bash
+    curl -sS https://fluxcd.io/install.sh | bash
   else
-    curl -s https://fluxcd.io/install.sh | FLUX_VERSION=$FLUX_VERSION bash
+    curl -sS https://fluxcd.io/install.sh | FLUX_VERSION=$FLUX_VERSION bash
   fi
 fi
 
