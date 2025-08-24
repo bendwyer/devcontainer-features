@@ -17,7 +17,7 @@ export DEBIAN_FRONTEND=noninteractive
 apt_get_update() {
   if [ "$(find /var/lib/apt/lists/* | wc -l)" = "0" ]; then
     echo "Running apt-get update..."
-    apt-get update -yq
+    apt-get -yq update
   fi
 }
 
@@ -78,7 +78,6 @@ if [ "${PRODUCT_AUTOCOMPLETE}" = "true" ]; then
       fi
       exec $SHELL
       $PRODUCT_NAME -autocomplete-install
-      . \$USER_LOCATION/.bashrc
       echo "$PRODUCT_NAME bash autocompletion installed successfully!"
     fi
 EOF
