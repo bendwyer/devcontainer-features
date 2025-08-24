@@ -1,6 +1,6 @@
 {
   "id": "flux",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Flux",
   "documentationURL": "https://fluxcd.io/flux/cmd/",
   "description": "Open and extensible continuous delivery solution for Kubernetes. Powered by GitOps Toolkit.",

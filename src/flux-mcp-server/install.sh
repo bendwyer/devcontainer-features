@@ -37,10 +37,10 @@ else
       apt-get -yq install jq
       echo "jq installation complete!"
     fi
-    FLUX_MCP_SERVER_RELEASE=$(curl -sL https://api.github.com/repos/controlplaneio-fluxcd/flux-operator/releases/latest | jq -r '.tag_name | split("v")[1]')
-    curl -sL https://github.com/controlplaneio-fluxcd/flux-operator/releases/latest/download/flux-operator-mcp_${FLUX_MCP_SERVER_RELEASE}_linux_${FLUX_MCP_SERVER_ARCH}.tar.gz | tar xzf - -C /usr/local/bin/ flux-operator-mcp
+    FLUX_MCP_SERVER_RELEASE=$(curl -sSL https://api.github.com/repos/controlplaneio-fluxcd/flux-operator/releases/latest | jq -r '.tag_name | split("v")[1]')
+    curl -sSL https://github.com/controlplaneio-fluxcd/flux-operator/releases/latest/download/flux-operator-mcp_${FLUX_MCP_SERVER_RELEASE}_linux_${FLUX_MCP_SERVER_ARCH}.tar.gz | tar xzf - -C /usr/local/bin/ flux-operator-mcp
   else
-    curl -sL https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v${FLUX_MCP_SERVER_VERSION}/flux-operator-mcp_${FLUX_MCP_SERVER_VERSION}_linux_${FLUX_MCP_SERVER_ARCH}.tar.gz | tar xzf - -C /usr/local/bin/ flux-operator-mcp
+    curl -sSL https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v${FLUX_MCP_SERVER_VERSION}/flux-operator-mcp_${FLUX_MCP_SERVER_VERSION}_linux_${FLUX_MCP_SERVER_ARCH}.tar.gz | tar xzf - -C /usr/local/bin/ flux-operator-mcp
   fi
 fi
 
