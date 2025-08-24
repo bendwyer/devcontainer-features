@@ -47,6 +47,8 @@ else
   rm -f ${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip
 fi
 
+echo "${PRODUCT_NAME} installed successfully!"
+
 if [ "${PRODUCT_AUTOCOMPLETE}" = "true" ]; then
   echo "Installing ${PRODUCT_NAME} bash autocompletion..."
   check_packages sudo
@@ -74,8 +76,7 @@ if [ "${PRODUCT_AUTOCOMPLETE}" = "true" ]; then
         sudo cp  /etc/skel/.profile "\$USER_LOCATION/.profile"
         echo ".profile copied"
       fi
-      echo "Message before problem line"
-      ls -la /usr/local/bin/
+      exec $SHELL
       $PRODUCT_NAME -autocomplete-install
       . \$USER_LOCATION/.bashrc
       echo "$PRODUCT_NAME bash autocompletion installed successfully!"
