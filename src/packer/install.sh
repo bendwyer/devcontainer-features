@@ -24,6 +24,16 @@ else
   echo "curl installation complete!"
 fi
 
+echo "Checking if unzip is installed..."
+if type unzip > /dev/null 2>&1; then
+    echo "unzip already installed. Skipping..."
+else
+  echo "Installing unzip..."
+  apt-get -yq update
+  apt-get -yq install unzip
+  echo "unzip installation complete!"
+fi
+
 echo "Checking if ${PRODUCT_NAME} is installed..."
 if [ "${PRODUCT_VERSION}" = "none" ] || type ${PRODUCT_NAME} > /dev/null 2>&1; then
     echo "${PRODUCT_NAME} already installed. Skipping..."
@@ -42,7 +52,7 @@ else
     PRODUCT_VERSION=$(curl -sL https://api.github.com/repos/hashicorp/${PRODUCT_NAME}/releases/latest | jq -r '.tag_name | split("v")[1]')
     curl -sLO https://releases.hashicorp.com/${PRODUCT_NAME}/${PRODUCT_VERSION}/${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip | unzip -j ${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip ${PRODUCT_NAME} -d /usr/local/bin/
   else
-    curl -sLO https://releases.hashicorp.com/${PRODUCT_NAME}/${PRODUCT_VERSION}/${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip  | unzip -j ${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip ${PRODUCT_NAME} -d /usr/local/bin/
+    curl -sLO https://releases.hashicorp.com/${PRODUCT_NAME}/${PRODUCT_VERSION}/${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip | unzip -j ${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip ${PRODUCT_NAME} -d /usr/local/bin/
   fi
   rm -f ${PRODUCT_NAME}_${PRODUCT_VERSION}_linux_${OS_ARCH}.zip
 fi
