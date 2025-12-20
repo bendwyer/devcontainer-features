@@ -1,0 +1,10 @@
+{
+  "claude_code_server_version": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian12",
+    "features": {
+      "claude-code": {
+        "version": "latest"
+      }
+    }
+  }
+}
