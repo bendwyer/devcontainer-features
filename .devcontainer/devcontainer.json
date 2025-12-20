@@ -17,6 +17,7 @@
       "extensions": [
         "-dbaeumer.vscode-eslint",
         "-ms-azuretools.vscode-docker",
+        "anthropic.claude-code",
         "docker.docker",
         "github.vscode-github-actions",
         "GitHub.vscode-pull-request-github",
