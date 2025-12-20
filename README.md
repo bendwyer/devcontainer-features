@@ -24,6 +24,16 @@ Distributing Features
 
 Features are individually versioned by the `version` attribute in a Feature's `devcontainer-feature.json`.  Features are versioned according to the semver specification. More details can be found in [the dev container Feature specification](https://containers.dev/implementors/features/#versioning).
 
+### Testing
+
+`BUILDKIT_PROGRESS=plain` is useful for troubleshooting issues or validating output.
+
+```shell
+env BUILDKIT_PROGRESS=plain devcontainer features test -f claude-code -i mcr.microsoft.com/devcontainers/base:debian12
+```
+
+See `devcontainer features test --help` for more information.
+
 ### Publishing
 
 > [!NOTE]
