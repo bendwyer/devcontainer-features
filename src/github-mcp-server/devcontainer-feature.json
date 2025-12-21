@@ -1,0 +1,21 @@
+{
+  "id": "github-mcp-server",
+  "version": "1.0.0",
+  "name": "GitHub MCP Server",
+  "documentationURL": "https://github.com/github/github-mcp-server",
+  "description": "The GitHub MCP Server connects AI tools directly to GitHub's platform.",
+  "options": {
+    "version": {
+      "default": "latest",
+      "description": "Select the version to install. Anything that is not 'latest' must be in '#.#.#' format.",
+      "proposals": [
+        "latest",
+        "0.26.3"
+      ],
+      "type": "string"
+    }
+  },
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/common-utils": {}
+  }
+}
