@@ -7,7 +7,7 @@ Claude Code is an agentic coding tool that lives in your terminal, understands y
 
 ```json
 "features": {
-    "ghcr.io/bendwyer/devcontainer-features/claude-code:2": {}
+    "ghcr.io/bendwyer/devcontainer-features/claude-code:3": {}
 }
 ```
 
@@ -42,6 +42,7 @@ This feature is tested against the following architectures:
 
 | Version | Notes |
 | --- | --- |
+| 3.0.0 | Switch to native installation |
 | 2.0.0 | Switch to npm installation |
 | 1.0.1 | Improve curl installation flow |
 | 1.0.0 | Initial release |
