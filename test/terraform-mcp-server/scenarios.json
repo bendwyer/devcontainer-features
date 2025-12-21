@@ -1,0 +1,10 @@
+{
+  "terraform_mcp_server_version": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian12",
+    "features": {
+      "terraform-mcp-server": {
+        "version": "0.3.2"
+      }
+    }
+  }
+}
