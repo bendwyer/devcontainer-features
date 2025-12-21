@@ -7,4 +7,5 @@ kubeconform: ./**/kubeconform/**
 kustomize: ./**/kustomize/**
 packer: ./**/packer/**
 terraform: ./**/terraform/**
+terraform-mcp-server: ./**/terraform-mcp-server/**
 tflint: ./**/tflint/**
