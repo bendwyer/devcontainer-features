@@ -24,7 +24,7 @@
     }
   },
   "postCreateCommand": "claude install $(cat /usr/local/share/claude-version 2>/dev/null || echo stable)",
-  "installsAfter": [
-    "ghcr.io/devcontainers/features/common-utils"
-  ]
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/common-utils": {}
+  }
 }
