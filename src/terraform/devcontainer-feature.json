@@ -1,7 +1,7 @@
 {
   "name": "Terraform",
   "id": "terraform",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Installs the Terraform CLI.",
   "options": {
     "version": {
@@ -19,11 +19,6 @@
       "type": "boolean",
       "default": true,
       "description": "Enable Terraform shell tab-completion"
-    },
-    "httpProxy": {
-      "type": "string",
-      "default": "",
-      "description": "Connect to a keyserver using a proxy by configuring this option"
     }
   },
   "customizations": {
@@ -43,7 +38,7 @@
       }
     }
   },
-  "installsAfter": [
-    "ghcr.io/devcontainers/features/common-utils"
-  ]
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/common-utils": {}
+  }
 }
