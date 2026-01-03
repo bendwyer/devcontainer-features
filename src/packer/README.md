@@ -43,6 +43,7 @@ This feature is tested against the following architectures:
 
 | Version | Notes |
 | --- | --- |
+| 1.0.1 | Simplify install script |
 | 1.0.0 | Initial release |
 
 
