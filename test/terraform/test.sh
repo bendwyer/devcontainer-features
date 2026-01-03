@@ -11,8 +11,10 @@ source dev-container-features-test-lib
 # The 'check' command comes from the dev-container-features-test-lib.
 echo ""
 echo "Running as $(whoami)"
-check "version" terraform --version
-check "terraform-bash-completion-contains-version-option" ./check_bash_completion.sh "terraform " "version"
+check "terraform permissions" ls -la /usr/local/bin/terraform
+check "terraform location" which terraform
+check "terraform version" terraform --version
+check "terraform autocompletion" ./terraform_autocompletion.sh "terraform " "version"
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.

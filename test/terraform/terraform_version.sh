@@ -11,6 +11,8 @@ source dev-container-features-test-lib
 # The 'check' command comes from the dev-container-features-test-lib.
 echo ""
 echo "Running as $(whoami)"
+check "terraform permissions" ls -la /usr/local/bin/terraform
+check "terraform location" which terraform
 check "terraform version" terraform --version
 
 # Report result
