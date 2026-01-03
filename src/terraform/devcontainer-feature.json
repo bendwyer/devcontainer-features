@@ -5,20 +5,18 @@
   "description": "Installs the Terraform CLI.",
   "options": {
     "version": {
-      "type": "string",
+      "default": "latest",
+      "description": "Select the version to install. Anything that is not 'latest' must be in '#.#.#' format.",
       "proposals": [
         "latest",
-        "1.9",
-        "1.0",
-        "0.15"
+        "1.9.1"
       ],
-      "default": "latest",
-      "description": "Terraform version"
+      "type": "string"
     },
     "autocomplete": {
       "type": "boolean",
       "default": true,
-      "description": "Enable Terraform shell tab-completion"
+      "description": "Enable shell tab-completion"
     }
   },
   "customizations": {
