@@ -1,6 +1,6 @@
 {
   "id": "packer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Packer",
   "documentationURL": "https://developer.hashicorp.com/packer/docs",
   "description": "Packer is a tool for creating identical machine images for multiple platforms from a single source configuration.",
@@ -27,7 +27,7 @@
       ]
     }
   },
-  "installsAfter": [
-    "ghcr.io/devcontainers/features/common-utils"
-  ]
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/common-utils": {}
+  }
 }
