@@ -1,0 +1,10 @@
+{
+  "talosctl_version": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian12",
+    "features": {
+      "talosctl": {
+        "version": "1.11.6"
+      }
+    }
+  }
+}
