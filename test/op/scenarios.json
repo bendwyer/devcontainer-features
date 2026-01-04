@@ -1,0 +1,10 @@
+{
+  "op_version": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian12",
+    "features": {
+      "op": {
+        "version": "2.31.0"
+      }
+    }
+  }
+}
