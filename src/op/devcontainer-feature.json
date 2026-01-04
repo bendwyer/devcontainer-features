@@ -17,5 +17,5 @@
   "dependsOn": {
     "ghcr.io/devcontainers/features/common-utils": {}
   },
-  "postCreateCommand": "echo 'source <(op completion bash)' >> ~/.bashrc"
+  "postCreateCommand": "echo 'source /usr/share/bash-completion/bash_completion; source <(op completion bash)' >> ~/.bashrc"
 }
