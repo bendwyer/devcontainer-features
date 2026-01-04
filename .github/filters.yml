@@ -6,6 +6,7 @@ github-mcp-server: ./**/github-mcp-server/**
 kube-linter: ./**/kube-linter/**
 kubeconform: ./**/kubeconform/**
 kustomize: ./**/kustomize/**
+omnictl: ./**/omnictl/**
 packer: ./**/packer/**
 terraform: ./**/terraform/**
 terraform-mcp-server: ./**/terraform-mcp-server/**
