@@ -7,6 +7,7 @@ kube-linter: ./**/kube-linter/**
 kubeconform: ./**/kubeconform/**
 kustomize: ./**/kustomize/**
 omnictl: ./**/omnictl/**
+op: ./**/op/**
 packer: ./**/packer/**
 talosctl: ./**/talosctl/**
 terraform: ./**/terraform/**
