@@ -8,6 +8,7 @@ kubeconform: ./**/kubeconform/**
 kustomize: ./**/kustomize/**
 omnictl: ./**/omnictl/**
 packer: ./**/packer/**
+talosctl: ./**/talosctl/**
 terraform: ./**/terraform/**
 terraform-mcp-server: ./**/terraform-mcp-server/**
 tflint: ./**/tflint/**
