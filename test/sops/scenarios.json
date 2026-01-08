@@ -1,0 +1,10 @@
+{
+  "sops_version": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian12",
+    "features": {
+      "sops": {
+        "version": "3.9.4"
+      }
+    }
+  }
+}
