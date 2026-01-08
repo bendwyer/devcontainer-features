@@ -10,6 +10,7 @@ kustomize: ./**/kustomize/**
 omnictl: ./**/omnictl/**
 op: ./**/op/**
 packer: ./**/packer/**
+sops: ./**/sops/**
 talosctl: ./**/talosctl/**
 terraform: ./**/terraform/**
 terraform-mcp-server: ./**/terraform-mcp-server/**
