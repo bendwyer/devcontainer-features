@@ -14,6 +14,7 @@ echo "Running as $(whoami)"
 check "talosctl permissions" ls -la /usr/local/bin/talosctl
 check "talosctl location" which talosctl
 check "talosctl version" talosctl version --client
+check "talosctl autocompletion" ./talosctl_autocompletion.sh "talosctl " "cluster"
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.
