@@ -1,4 +1,5 @@
 ---
+age: ./**/age/**
 claude-code: ./**/claude-code/**
 flux: ./**/flux/**
 flux-mcp-server: ./**/flux-mcp-server/**
