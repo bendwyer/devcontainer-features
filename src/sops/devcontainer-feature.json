@@ -1,0 +1,22 @@
+{
+  "id": "sops",
+  "version": "1.0.0",
+  "name": "Secrets OPerationS",
+  "documentationURL": "https://getsops.io/docs/",
+  "description": "Simple and flexible tool for managing secrets.",
+  "options": {
+    "version": {
+      "default": "latest",
+      "description": "Select the version to install. Anything that is not 'latest' must be in '#.#.#' format.",
+      "proposals": [
+        "latest",
+        "3.11.0"
+      ],
+      "type": "string"
+    }
+  },
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/common-utils": {}
+  },
+  "postCreateCommand": "echo 'source /usr/share/bash-completion/bash_completion; source <(sops completion bash)' >> ~/.bashrc"
+}
