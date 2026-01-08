@@ -1,0 +1,10 @@
+{
+  "age_version": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian12",
+    "features": {
+      "age": {
+        "version": "1.1.1"
+      }
+    }
+  }
+}
