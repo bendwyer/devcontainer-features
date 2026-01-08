@@ -14,6 +14,7 @@ echo "Running as $(whoami)"
 check "omnictl permissions" ls -la /usr/local/bin/omnictl
 check "omnictl location" which omnictl
 check "omnictl version" omnictl --version
+check "omnictl autocompletion" ./omnictl_autocompletion.sh "omnictl " "cluster"
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.

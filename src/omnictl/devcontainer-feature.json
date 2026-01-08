@@ -1,7 +1,7 @@
 {
   "name": "omnictl",
   "id": "omnictl",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "omnictl is the command-line tool for Omni. It lets you authenticate, manage, and interact with Talos-based Kubernetes clusters through a centralized API.",
   "options": {
     "version": {
@@ -16,5 +16,6 @@
   },
   "dependsOn": {
     "ghcr.io/devcontainers/features/common-utils": {}
-  }
+  },
+  "postCreateCommand": "echo 'source /usr/share/bash-completion/bash_completion; source <(omnictl completion bash)' >> ~/.bashrc"
 }
