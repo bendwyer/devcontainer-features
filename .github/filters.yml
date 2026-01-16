@@ -7,6 +7,7 @@ github-mcp-server: ./**/github-mcp-server/**
 hcloud: ./**/hcloud/**
 kube-linter: ./**/kube-linter/**
 kubeconform: ./**/kubeconform/**
+kubelogin: ./**/kubelogin/**
 kustomize: ./**/kustomize/**
 omnictl: ./**/omnictl/**
 op: ./**/op/**
