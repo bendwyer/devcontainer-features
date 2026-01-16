@@ -1,0 +1,21 @@
+{
+  "name": "kubelogin",
+  "id": "kubelogin",
+  "version": "1.0.0",
+  "description": "kubectl plugin for Kubernetes OpenID Connect authentication (kubectl oidc-login)",
+  "documentationURL": "https://github.com/int128/kubelogin/blob/master/docs/setup.md",
+  "options": {
+    "version": {
+      "default": "latest",
+      "description": "Select the version to install. Anything that is not 'latest' must be in '#.#.#' format.",
+      "proposals": [
+        "latest",
+        "1.35.2"
+      ],
+      "type": "string"
+    }
+  },
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/common-utils": {}
+  }
+}
