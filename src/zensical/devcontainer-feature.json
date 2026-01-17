@@ -1,0 +1,27 @@
+{
+  "name": "Zensical (via pipx)",
+  "id": "zensical",
+  "version": "1.0.0",
+  "description": "Zensical is a modern static site generator designed to simplify building and maintaining project documentation.",
+  "documentationURL": "https://zensical.org/docs/get-started/",
+  "options": {
+    "version": {
+      "default": "latest",
+      "description": "Select the version to install. Anything that is not 'latest' must be in '#.#.#' format.",
+      "proposals": [
+        "latest",
+        "0.0.16",
+        "0.0.*"
+      ],
+      "type": "string"
+    }
+  },
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/python": {
+      "installTools": "true",
+      "toolsToInstall": [
+        "virtualenv"
+      ]
+    }
+  }
+}
