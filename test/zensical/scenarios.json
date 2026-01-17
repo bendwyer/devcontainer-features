@@ -1,0 +1,10 @@
+{
+  "zensical_version": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian12",
+    "features": {
+      "zensical": {
+        "version": "0.0.7"
+      }
+    }
+  }
+}
