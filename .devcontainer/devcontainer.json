@@ -1,5 +1,5 @@
 {
-  "name": "devcontainer-features",
+  "name": "{containerWorkspaceFolderBasename}",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
   "customizations": {
     "vscode": {
@@ -28,7 +28,8 @@
   },
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-    "ghcr.io/bendwyer/devcontainer-features/claude-code:3": {}
+    "ghcr.io/devcontainers/features/github-cli": {},
+    "ghcr.io/bendwyer/devcontainer-features/claude-code:4": {}
   },
   "remoteUser": "node",
   "updateContentCommand": "npm install -g @devcontainers/cli"
