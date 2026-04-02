@@ -148,12 +148,14 @@ echo "Binary installed to $INSTALL_DIR/claude"
 # Save installed version for postCreateCommand
 echo "$resolved_version" > /usr/local/share/claude-version
 
-# Ensure the CLAUDE_CONFIG_DIR mount point exists and is owned by the container user
+# Ensure the CLAUDE_CONFIG_DIR mount point exists and is writable.
+# Uses chmod 1777 (sticky bit) so any container user can write, while the
+# sticky bit prevents users from deleting each other's files.
+# Individual config files (e.g. .claude.json) are created with restrictive
+# permissions (600) by Claude Code itself.
 CLAUDE_DATA_DIR="/var/lib/claude"
 mkdir -p "$CLAUDE_DATA_DIR"
-if [ -n "$_REMOTE_USER" ] && [ "$_REMOTE_USER" != "root" ]; then
-    chown "$_REMOTE_USER" "$CLAUDE_DATA_DIR"
-fi
+chmod 1777 "$CLAUDE_DATA_DIR"
 
 # Clean up
 rm -rf "$DOWNLOAD_DIR"

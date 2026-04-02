@@ -23,7 +23,7 @@
       ]
     }
   },
-  "postCreateCommand": "claude install $(cat /usr/local/share/claude-version 2>/dev/null || echo stable)",
+  "postCreateCommand": "sudo chown $(whoami) /var/lib/claude && claude install $(cat /usr/local/share/claude-version 2>/dev/null || echo stable)",
   "dependsOn": {
     "ghcr.io/devcontainers/features/common-utils": {}
   },
