@@ -26,5 +26,15 @@
   "postCreateCommand": "claude install $(cat /usr/local/share/claude-version 2>/dev/null || echo stable)",
   "dependsOn": {
     "ghcr.io/devcontainers/features/common-utils": {}
-  }
+  },
+  "containerEnv": {
+    "CLAUDE_CONFIG_DIR": "/var/lib/claude"
+  },
+  "mounts": [
+    {
+      "source": "${containerWorkspaceFolderBasename}-claude-code",
+      "target": "/var/lib/claude",
+      "type": "volume"
+    }
+  ]
 }
