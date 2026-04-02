@@ -148,6 +148,13 @@ echo "Binary installed to $INSTALL_DIR/claude"
 # Save installed version for postCreateCommand
 echo "$resolved_version" > /usr/local/share/claude-version
 
+# Ensure the CLAUDE_CONFIG_DIR mount point exists and is owned by the container user
+CLAUDE_DATA_DIR="/var/lib/claude"
+mkdir -p "$CLAUDE_DATA_DIR"
+if [ -n "$_REMOTE_USER" ] && [ "$_REMOTE_USER" != "root" ]; then
+    chown "$_REMOTE_USER" "$CLAUDE_DATA_DIR"
+fi
+
 # Clean up
 rm -rf "$DOWNLOAD_DIR"
 
