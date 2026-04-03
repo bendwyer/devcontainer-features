@@ -1,6 +1,6 @@
 {
   "id": "claude-code",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "name": "Claude Code",
   "documentationURL": "https://docs.anthropic.com/en/docs/claude-code/overview",
   "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
@@ -23,7 +23,7 @@
       ]
     }
   },
-  "postCreateCommand": "sudo chown $(whoami) /var/lib/claude && claude install $(cat /usr/local/share/claude-version 2>/dev/null || echo stable)",
+  "postCreateCommand": "sudo chown $(whoami) /var/lib/claude && mkdir -p /var/lib/claude/ide ~/.claude && rm -rf ~/.claude/ide && ln -sfn /var/lib/claude/ide ~/.claude/ide && claude install $(cat /usr/local/share/claude-version 2>/dev/null || echo stable)",
   "dependsOn": {
     "ghcr.io/devcontainers/features/common-utils": {}
   },
