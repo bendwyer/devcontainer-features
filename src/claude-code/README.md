@@ -42,6 +42,7 @@ This feature is tested against the following architectures:
 
 | Version | Notes |
 | --- | --- |
+| 4.0.1 | Fix IDE detection bug |
 | 4.0.0 | Add data persistence |
 | 3.0.0 | Switch to native installation |
 | 2.0.0 | Switch to npm installation |
