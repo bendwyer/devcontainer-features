@@ -14,6 +14,7 @@ check "claude config dir is writable" bash -c "test -w /var/lib/claude && echo w
 check "claude.json exists" ls -la /var/lib/claude/.claude.json
 check "CLAUDE_CONFIG_DIR is set" bash -c "echo \$CLAUDE_CONFIG_DIR | grep /var/lib/claude"
 check "volume is mounted" bash -c "mount | grep /var/lib/claude"
+check "ide symlink exists" bash -c "test -L ~/.claude/ide && readlink ~/.claude/ide | grep /var/lib/claude/ide"
 
 # Report result
 reportResults
