@@ -7,7 +7,7 @@ Installs the Terraform CLI.
 
 ```json
 "features": {
-    "ghcr.io/bendwyer/devcontainer-features/terraform:2": {}
+    "ghcr.io/bendwyer/devcontainer-features/terraform:3": {}
 }
 ```
 
@@ -16,7 +16,6 @@ Installs the Terraform CLI.
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | version | Select the version to install. Anything that is not 'latest' must be in '#.#.#' format. | string | latest |
-| autocomplete | Enable shell tab-completion | boolean | true |
 
 ## Customizations
 
@@ -40,6 +39,7 @@ Versions older than what are listed above are untested and therefore may not sup
 
 | Version | Notes |
 | --- | --- |
+| 3.0.0 | Remove autocomplete input |
 | 2.0.0 | Simplify install script |
 | 1.2.0 | Set VS Code to auto-format Terraform files on save |
 | 1.1.1 | Cleanup Terraform feature |
