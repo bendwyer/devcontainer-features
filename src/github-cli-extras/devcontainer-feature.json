@@ -6,6 +6,7 @@
   "description": "Adds data persistence for the GitHub CLI (gh).",
   "options": {},
   "dependsOn": {
+    "ghcr.io/devcontainers/features/common-utils": {},
     "ghcr.io/devcontainers/features/github-cli": {}
   },
   "postCreateCommand": "/usr/local/share/github-cli-extras/setup.sh",
