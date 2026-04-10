@@ -1,0 +1,19 @@
+{
+  "id": "github-cli-extras",
+  "version": "1.0.0",
+  "name": "GitHub CLI Extras",
+  "documentationURL": "https://github.com/bendwyer/devcontainer-features/tree/main/src/github-cli-extras",
+  "description": "Adds data persistence for the GitHub CLI (gh).",
+  "options": {},
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/github-cli": {}
+  },
+  "postCreateCommand": "/usr/local/share/github-cli-extras/setup.sh",
+  "mounts": [
+    {
+      "source": "${containerWorkspaceFolderBasename}-github-cli",
+      "target": "/var/lib/gh",
+      "type": "volume"
+    }
+  ]
+}
