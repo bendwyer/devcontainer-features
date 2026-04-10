@@ -3,6 +3,7 @@ age: ./**/age/**
 claude-code: ./**/claude-code/**
 flux: ./**/flux/**
 flux-mcp-server: ./**/flux-mcp-server/**
+github-cli-extras: ./**/github-cli-extras/**
 github-mcp-server: ./**/github-mcp-server/**
 hcloud: ./**/hcloud/**
 kube-linter: ./**/kube-linter/**
