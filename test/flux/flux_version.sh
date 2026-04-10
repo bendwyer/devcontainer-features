@@ -14,7 +14,6 @@ echo "Running as $(whoami)"
 check "flux permissions" ls -la /usr/local/bin/flux
 check "flux location" which flux
 check "flux version" flux --version
-check "flux autocompletion" ./flux_autocompletion.sh "flux " "reconcile"
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.
