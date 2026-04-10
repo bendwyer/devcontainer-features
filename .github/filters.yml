@@ -1,5 +1,6 @@
 ---
 age: ./**/age/**
+ansible-mcp-server: ./**/ansible-mcp-server/**
 claude-code: ./**/claude-code/**
 flux: ./**/flux/**
 flux-mcp-server: ./**/flux-mcp-server/**
