@@ -1,35 +1,27 @@
 #!/usr/bin/env bash
 
-# Original script: https://github.com/goldsam/dev-container-features/blob/5919dade65b1c47d6fbd3aa13a62c938daeec4de/src/flux2/install.sh
-
 set -e
 
-FLUX_VERSION=${VERSION:-"latest"}
+VERSION="${VERSION:-latest}"
+binary_name="flux"
+owner_name="fluxcd"
+repo_name="flux2"
 
-export DEBIAN_FRONTEND=noninteractive
+arch=$(uname -m | sed 's/aarch64/arm64/; s/x86_64/amd64/')
 
-echo "Checking if curl is installed..."
-if type curl > /dev/null 2>&1; then
-    echo "curl already installed. Skipping..."
+echo "Checking if ${binary_name} is installed..."
+if [ "${VERSION}" = "none" ] || type ${binary_name} > /dev/null 2>&1; then
+    echo "${binary_name} already installed. Skipping..."
 else
-  echo "Installing curl..."
-  apt-get -yq update
-  apt-get -yq install curl
-  echo "curl installation complete!"
-fi
-
-echo "Checking if flux is installed..."
-if [ "${FLUX_VERSION}" = "none" ] || type flux > /dev/null 2>&1; then
-    echo "flux already installed. Skipping..."
-else
-  echo "Installing flux..."
-  if [ "${FLUX_VERSION}" = "latest" ] ; then
-    curl -sS https://fluxcd.io/install.sh | bash
+  echo "Installing ${binary_name}..."
+  if [ "${VERSION}" = "latest" ] ; then
+    binary_version=$(curl -sSL https://api.github.com/repos/${owner_name}/${repo_name}/releases/latest | jq -r '.tag_name | split("v")[1]')
   else
-    curl -sS https://fluxcd.io/install.sh | FLUX_VERSION=$FLUX_VERSION bash
+    binary_version="${VERSION}"
   fi
+  curl -sSL https://github.com/${owner_name}/${repo_name}/releases/download/v${binary_version}/${binary_name}_${binary_version}_linux_${arch}.tar.gz | tar xzf - -C /usr/local/bin/ ${binary_name}
 fi
 
 set +e
 
-echo "flux installation complete!"
+echo "${binary_name} installation complete!"

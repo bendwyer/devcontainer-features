@@ -1,0 +1,10 @@
+{
+  "flux_version": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian12",
+    "features": {
+      "flux": {
+        "version": "2.7.5"
+      }
+    }
+  }
+}
