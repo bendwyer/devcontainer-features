@@ -1,0 +1,21 @@
+{
+  "id": "grafana-mcp-server",
+  "version": "1.0.0",
+  "name": "Grafana MCP Server",
+  "documentationURL": "https://github.com/grafana/mcp-grafana",
+  "description": "MCP server for Grafana.",
+  "options": {
+    "version": {
+      "default": "latest",
+      "description": "Select the version to install. Anything that is not 'latest' must be in '#.#.#' format.",
+      "proposals": [
+        "latest",
+        "0.11.0"
+      ],
+      "type": "string"
+    }
+  },
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/common-utils": {}
+  }
+}
