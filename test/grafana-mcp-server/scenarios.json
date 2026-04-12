@@ -1,0 +1,10 @@
+{
+  "grafana_mcp_server_version": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian12",
+    "features": {
+      "grafana-mcp-server": {
+        "version": "0.11.0"
+      }
+    }
+  }
+}
