@@ -72,13 +72,33 @@ else
     echo "$binary_version" > /usr/local/share/claude-version
 fi
 
-# Prepare the CLAUDE_CONFIG_DIR mount point, owned by the target user.
-# Target user defaults to _REMOTE_USER (set by the devcontainer runtime), falling back to root.
-# chown is best-effort: if the user does not yet exist (e.g. common-utils hasn't run), we skip silently.
+# Prepare the CLAUDE_CONFIG_DIR mount point.
+# Mode 1777 (sticky bit) is used instead of chown because devcontainer runtimes
+# may re-map the target user's UID at runtime (updateRemoteUserUID), which would
+# leave a build-time chown pointing at the wrong UID. Sticky bit lets any user
+# write while preventing deletion of other users' files. Individual files claude
+# writes get 600 perms from claude itself.
 target_user="${_REMOTE_USER:-root}"
+if [ "${target_user}" = "root" ]; then
+    target_home="/root"
+else
+    target_home="/home/${target_user}"
+fi
 mounted_dir="/var/lib/claude"
-mkdir -p "${mounted_dir}"
-chown "${target_user}:${target_user}" "${mounted_dir}" 2>/dev/null || true
+config_dir="${target_home}/.claude"
+
+mkdir -p "${mounted_dir}/ide"
+chmod 1777 "${mounted_dir}"
+chmod 1777 "${mounted_dir}/ide"
+
+# Symlink ~/.claude/ide -> /var/lib/claude/ide so consumers that read the path
+# literally (e.g., the VS Code extension IDE MCP connection) see the same state
+# as claude writes via CLAUDE_CONFIG_DIR. The `ide` subpath does not honor the
+# env var (see anthropics/claude-code#34800, #13933, #4739), so the symlink is
+# required for cross-runtime parity.
+mkdir -p "${config_dir}"
+ln -sfn "${mounted_dir}/ide" "${config_dir}/ide"
+chown -h "${target_user}:${target_user}" "${config_dir}" "${config_dir}/ide" 2>/dev/null || true
 
 set +e
 
