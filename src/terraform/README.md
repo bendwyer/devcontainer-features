@@ -7,7 +7,7 @@ Installs the Terraform CLI.
 
 ```json
 "features": {
-    "ghcr.io/bendwyer/devcontainer-features/terraform:3": {}
+    "ghcr.io/bendwyer/devcontainer-features/terraform:4": {}
 }
 ```
 
@@ -28,17 +28,21 @@ Installs the Terraform CLI.
 
 This feature is tested against the following OS versions:
 
-- ubuntu:noble
+- ubuntu:24.04
 - debian:12
-- mcr.microsoft.com/devcontainers/base:ubuntu
-- mcr.microsoft.com/devcontainers/base:debian
+- mcr.microsoft.com/devcontainers/base:ubuntu24.04
+- mcr.microsoft.com/devcontainers/base:debian12
 
-Versions older than what are listed above are untested and therefore may not support this feature without additional packages.
+This feature is tested against the following architectures:
+
+- amd64
+- arm64
 
 ## Changelog
 
 | Version | Notes |
 | --- | --- |
+| 4.0.0 | Refactor bash completion and required packages |
 | 3.0.0 | Remove autocomplete input |
 | 2.0.0 | Simplify install script |
 | 1.2.0 | Set VS Code to auto-format Terraform files on save |

@@ -7,7 +7,7 @@ Packer is a tool for creating identical machine images for multiple platforms fr
 
 ```json
 "features": {
-    "ghcr.io/bendwyer/devcontainer-features/packer:1": {}
+    "ghcr.io/bendwyer/devcontainer-features/packer:2": {}
 }
 ```
 
@@ -16,7 +16,6 @@ Packer is a tool for creating identical machine images for multiple platforms fr
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | version | Select the version to install. Anything that is not 'latest' must be in '#.#.#' format. | string | latest |
-| autocomplete | Enable shell tab-completion. | boolean | true |
 
 ## Customizations
 
@@ -43,6 +42,7 @@ This feature is tested against the following architectures:
 
 | Version | Notes |
 | --- | --- |
+| 2.0.0 | Refactor bash completion and required packages |
 | 1.0.1 | Simplify install script |
 | 1.0.0 | Initial release |
 
