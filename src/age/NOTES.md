@@ -8,10 +8,14 @@ This feature is tested against the following OS versions:
 - mcr.microsoft.com/devcontainers/base:ubuntu24.04
 - mcr.microsoft.com/devcontainers/base:debian12
 
-Versions older than what are listed above are untested and therefore may not support this feature without additional packages.
+This feature is tested against the following architectures:
+
+- amd64
+- arm64
 
 ## Changelog
 
 | Version | Notes |
 | --- | --- |
+| 2.0.0 | Replace dependsOn with explicit required packages |
 | 1.0.0 | Initial release |

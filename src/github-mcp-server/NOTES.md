@@ -17,4 +17,5 @@ This feature is tested against the following architectures:
 
 | Version | Notes |
 | --- | --- |
+| 2.0.0 | Replace dependsOn with explicit required packages |
 | 1.0.0 | Initial release |
