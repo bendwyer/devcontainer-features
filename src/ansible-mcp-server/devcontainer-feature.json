@@ -1,7 +1,7 @@
 {
   "id": "ansible-mcp-server",
   "version": "1.0.0",
-  "name": "Ansible MCP Server (via npm)",
+  "name": "Ansible MCP Server",
   "documentationURL": "https://docs.ansible.com/projects/vscode-ansible/mcp/",
   "description": "The Ansible Development Tools MCP (Model Context Protocol) Server enables AI assistants and language models to interact with Ansible tooling through a standardized protocol.",
   "options": {
