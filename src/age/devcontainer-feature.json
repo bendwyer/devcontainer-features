@@ -1,7 +1,7 @@
 {
   "name": "age File Encryption",
   "id": "age",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A simple, modern and secure encryption tool (and Go library) with small explicit keys, no config options, and UNIX-style composability.",
   "options": {
     "version": {
@@ -13,8 +13,5 @@
       ],
       "type": "string"
     }
-  },
-  "dependsOn": {
-    "ghcr.io/devcontainers/features/common-utils": {}
   }
 }
