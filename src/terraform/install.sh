@@ -2,7 +2,7 @@
 
 set -e
 
-REQUIRED_PACKAGES=(curl jq unzip)
+REQUIRED_PACKAGES=(ca-certificates curl jq unzip)
 
 to_install=()
 for pkg in "${REQUIRED_PACKAGES[@]}"; do

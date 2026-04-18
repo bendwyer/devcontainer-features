@@ -2,7 +2,7 @@
 
 set -e
 
-REQUIRED_PACKAGES=(bash-completion curl unzip)
+REQUIRED_PACKAGES=(bash-completion ca-certificates curl unzip)
 
 to_install=()
 for pkg in "${REQUIRED_PACKAGES[@]}"; do
