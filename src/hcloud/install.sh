@@ -39,24 +39,20 @@ fi
 target_user="${_REMOTE_USER:-root}"
 echo "Installing bash completion for ${binary_name} for ${target_user}..."
 if [ "${target_user}" = "root" ]; then
-    target_home="/root"
+    target_bashrc="/root/.bashrc"
 else
-    target_home="/home/${target_user}"
+    target_bashrc="/home/${target_user}/.bashrc"
 fi
-target_bashrc="${target_home}/.bashrc"
-mkdir -p "${target_home}"
-if [ ! -s "${target_bashrc}" ]; then
-    cp /etc/skel/.bashrc "${target_bashrc}" 2>/dev/null || touch "${target_bashrc}"
-fi
-completion_line="source <(${binary_name} completion bash)"
-if ! grep -qF "${completion_line}" "${target_bashrc}" 2>/dev/null; then
+completion_marker="# ${binary_name} completion (managed by ${binary_name} devcontainer feature)"
+if ! grep -qF "${completion_marker}" "${target_bashrc}" 2>/dev/null; then
     {
         echo ""
-        echo "# ${binary_name} completion (managed by ${binary_name} devcontainer feature)"
-        echo "${completion_line}"
+        echo "${completion_marker}"
+        echo "source /usr/share/bash-completion/bash_completion"
+        echo "source <(${binary_name} completion bash)"
     } >> "${target_bashrc}"
 fi
-chown "${target_user}:${target_user}" "${target_home}" "${target_bashrc}" 2>/dev/null || true
+chown "${target_user}:${target_user}" "${target_bashrc}" 2>/dev/null || true
 echo "Bash completion for ${binary_name} installed."
 
 set +e
