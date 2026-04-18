@@ -7,7 +7,7 @@ Kubeconform is a Kubernetes manifest validation tool.
 
 ```json
 "features": {
-    "ghcr.io/bendwyer/devcontainer-features/kubeconform:1": {}
+    "ghcr.io/bendwyer/devcontainer-features/kubeconform:2": {}
 }
 ```
 
@@ -15,7 +15,7 @@ Kubeconform is a Kubernetes manifest validation tool.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Select the version to install. Anything that is not 'latest' must be in 'v#.#.#' format. | string | latest |
+| version | Select the version to install. Anything that is not 'latest' must be in '#.#.#' format. | string | latest |
 
 ## Customizations
 
@@ -42,6 +42,7 @@ This feature is tested against the following architectures:
 
 | Version | Notes |
 | --- | --- |
+| 2.0.0 | Refactor install.sh |
 | 1.0.2 | Surface curl errors |
 | 1.0.1 | Fix curl option typo |
 | 1.0.0 | Initial release |

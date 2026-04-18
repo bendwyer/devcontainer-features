@@ -7,7 +7,7 @@ KubeLinter is a static analysis tool that checks Kubernetes YAML files and Helm 
 
 ```json
 "features": {
-    "ghcr.io/bendwyer/devcontainer-features/kube-linter:1": {}
+    "ghcr.io/bendwyer/devcontainer-features/kube-linter:2": {}
 }
 ```
 
@@ -15,7 +15,7 @@ KubeLinter is a static analysis tool that checks Kubernetes YAML files and Helm 
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Select the version to install. Anything that is not 'latest' must be in 'v#.#.#' format. | string | latest |
+| version | Select the version to install. Anything that is not 'latest' must be in '#.#.#' format. | string | latest |
 
 ## Customizations
 
@@ -42,6 +42,7 @@ This feature is tested against the following architectures:
 
 | Version | Notes |
 | --- | --- |
+| 2.0.0 | Refactor install.sh |
 | 1.0.1 | Surface curl errors |
 | 1.0.0 | Initial release |
 

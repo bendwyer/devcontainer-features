@@ -7,7 +7,7 @@ Kustomize lets you customize raw, template-free YAML files for multiple purposes
 
 ```json
 "features": {
-    "ghcr.io/bendwyer/devcontainer-features/kustomize:1": {}
+    "ghcr.io/bendwyer/devcontainer-features/kustomize:2": {}
 }
 ```
 
@@ -42,6 +42,7 @@ This feature is tested against the following architectures:
 
 | Version | Notes |
 | --- | --- |
+| 2.0.0 | Refactor install.sh |
 | 1.0.1 | Surface curl errors |
 | 1.0.0 | Initial release |
 
