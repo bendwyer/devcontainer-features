@@ -99,7 +99,13 @@ Claude also writes one thing outside the patterns above:
 
 - `$HOME/.local/share/applications/claude-code-url-handler.desktop` — XDG desktop entry so the OS can handle `vscode://anthropic.claude-code/open` URLs. Cosmetic; not persisted; recreated on install.
 
-An **empty** `$HOME/.claude/` directory is created by claude even when `CLAUDE_CONFIG_DIR` is redirected. No contents; harmless.
+#### Paths inside `~/.claude` that DO NOT honor `CLAUDE_CONFIG_DIR`
+
+Despite `CLAUDE_CONFIG_DIR` redirecting most of `~/.claude/`, some consumers read specific subpaths literally:
+
+- `~/.claude/ide/` — VS Code extension's IDE MCP server connection writes lock files to this path literally; it does not follow `CLAUDE_CONFIG_DIR`. Tracked upstream in [anthropics/claude-code#34800](https://github.com/anthropics/claude-code/issues/34800), [#13933](https://github.com/anthropics/claude-code/issues/13933), and [#4739](https://github.com/anthropics/claude-code/issues/4739) (all closed without a code fix).
+
+This feature's install.sh works around the bug by creating a symlink `~/.claude/ide` → `/var/lib/claude/ide` at build time so both code paths see the same state. Without it, the VS Code extension would not see IDE connection locks claude writes via `CLAUDE_CONFIG_DIR`.
 
 #### Project-scope paths (NOT user-scope, NOT redirected)
 
