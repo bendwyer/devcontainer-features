@@ -17,6 +17,7 @@ This feature is tested against the following architectures:
 
 | Version | Notes |
 | --- | --- |
+| 2.0.0 | Refactor install.sh |
 | 1.0.2 | Surface curl errors |
 | 1.0.1 | Fix curl option typo |
 | 1.0.0 | Initial release |
