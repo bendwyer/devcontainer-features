@@ -7,7 +7,7 @@ The GitHub MCP Server connects AI tools directly to GitHub's platform.
 
 ```json
 "features": {
-    "ghcr.io/bendwyer/devcontainer-features/github-mcp-server:1": {}
+    "ghcr.io/bendwyer/devcontainer-features/github-mcp-server:2": {}
 }
 ```
 
@@ -36,6 +36,7 @@ This feature is tested against the following architectures:
 
 | Version | Notes |
 | --- | --- |
+| 2.0.0 | Replace dependsOn with explicit required packages |
 | 1.0.0 | Initial release |
 
 
