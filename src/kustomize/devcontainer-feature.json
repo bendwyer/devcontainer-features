@@ -1,7 +1,7 @@
 {
-  "id": "kustomize",
-  "version": "1.0.1",
   "name": "Kustomize",
+  "id": "kustomize",
+  "version": "2.0.0",
   "documentationURL": "https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/",
   "description": "Kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.",
   "options": {
@@ -21,8 +21,5 @@
         "ms-kubernetes-tools.vscode-kubernetes-tools"
       ]
     }
-  },
-  "installsAfter": [
-    "ghcr.io/devcontainers/features/common-utils"
-  ]
+  }
 }

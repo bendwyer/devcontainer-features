@@ -2,38 +2,40 @@
 
 set -e
 
-KUBECONFORM_VERSION=${VERSION:-"latest"}
+REQUIRED_PACKAGES=(ca-certificates curl jq)
 
-if [ $(uname -m) = "aarch64" ] || [ $(uname -m) = "arm64" ]; then
-  KUBECONFORM_ARCH="arm64"
-else
-  KUBECONFORM_ARCH="amd64"
+to_install=()
+for pkg in "${REQUIRED_PACKAGES[@]}"; do
+    dpkg -s "$pkg" > /dev/null 2>&1 || to_install+=("$pkg")
+done
+
+if (( ${#to_install[@]} > 0 )); then
+    echo "Installing missing packages: ${to_install[*]}"
+    apt-get update
+    apt-get install -y --no-install-recommends "${to_install[@]}"
+    rm -rf /var/lib/apt/lists/*
 fi
 
-export DEBIAN_FRONTEND=noninteractive
+VERSION="${VERSION:-latest}"
+binary_name="kubeconform"
+owner_name="yannh"
+repo_name="kubeconform"
 
-echo "Checking if curl is installed..."
-if type curl > /dev/null 2>&1; then
-    echo "curl already installed. Skipping..."
-else
-  echo "Installing curl..."
-  apt-get -yq update
-  apt-get -yq install curl
-  echo "curl installation complete!"
-fi
+arch=$(uname -m | sed 's/aarch64/arm64/; s/x86_64/amd64/')
 
-echo "Checking if kubeconform is installed..."
-if [ "${KUBECONFORM_VERSION}" = "none" ] || type kubeconform > /dev/null 2>&1; then
-    echo "kubeconform already installed. Skipping..."
+echo "Checking if ${binary_name} is installed..."
+if [ "${VERSION}" = "none" ] || type ${binary_name} > /dev/null 2>&1; then
+    echo "${binary_name} already installed. Skipping..."
 else
-  echo "Installing kubeconform..."
-  if [ "${KUBECONFORM_VERSION}" = "latest" ] ; then
-    curl -sSL https://github.com/yannh/kubeconform/releases/latest/download/kubeconform-linux-${KUBECONFORM_ARCH}.tar.gz | tar xzf - -C /usr/local/bin/ kubeconform
+  echo "Installing ${binary_name}..."
+  if [ "${VERSION}" = "latest" ] ; then
+    binary_version=$(curl -sSL https://api.github.com/repos/${owner_name}/${repo_name}/releases/latest | jq -r '.tag_name | split("v")[1]')
   else
-    curl -sSL https://github.com/yannh/kubeconform/releases/download/${KUBECONFORM_VERSION}/kubeconform-linux-${KUBECONFORM_ARCH}.tar.gz | tar xzf - -C /usr/local/bin/ kubeconform
+    binary_version="${VERSION}"
   fi
+  curl -sSL https://github.com/${owner_name}/${repo_name}/releases/download/v${binary_version}/${binary_name}-linux-${arch}.tar.gz | tar xzf - -C /usr/local/bin/ ${binary_name}
 fi
 
 set +e
 
-echo "kubeconform installation complete!"
+echo "${binary_name} installation complete!"

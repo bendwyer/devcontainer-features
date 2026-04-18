@@ -2,21 +2,41 @@
 
 set -e
 
-. ./library_scripts.sh
+REQUIRED_PACKAGES=(ca-certificates curl jq unzip)
 
-# nanolayer is a cli utility which keeps container layers as small as possible
-# source code: https://github.com/devcontainers-extra/nanolayer
-# `ensure_nanolayer` is a bash function that will find any existing nanolayer installations,
-# and if missing - will download a temporary copy that automatically get deleted at the end
-# of the script
-ensure_nanolayer nanolayer_location "v0.5.6"
+to_install=()
+for pkg in "${REQUIRED_PACKAGES[@]}"; do
+    dpkg -s "$pkg" > /dev/null 2>&1 || to_install+=("$pkg")
+done
 
-$nanolayer_location \
-  install \
-  devcontainer-feature \
-  "ghcr.io/devcontainers-extra/features/gh-release:1.0.25" \
-  --option repo='terraform-linters/tflint' \
-  --option binaryNames='tflint' \
-  --option version="$VERSION"
+if (( ${#to_install[@]} > 0 )); then
+    echo "Installing missing packages: ${to_install[*]}"
+    apt-get update
+    apt-get install -y --no-install-recommends "${to_install[@]}"
+    rm -rf /var/lib/apt/lists/*
+fi
 
-echo 'Done!'
+VERSION="${VERSION:-latest}"
+binary_name="tflint"
+owner_name="terraform-linters"
+repo_name="tflint"
+
+arch=$(uname -m | sed 's/aarch64/arm64/; s/x86_64/amd64/')
+
+echo "Checking if ${binary_name} is installed..."
+if [ "${VERSION}" = "none" ] || type ${binary_name} > /dev/null 2>&1; then
+    echo "${binary_name} already installed. Skipping..."
+else
+  echo "Installing ${binary_name}..."
+  if [ "${VERSION}" = "latest" ] ; then
+    binary_version=$(curl -sSL https://api.github.com/repos/${owner_name}/${repo_name}/releases/latest | jq -r '.tag_name | split("v")[1]')
+  else
+    binary_version="${VERSION}"
+  fi
+  curl -sSLO https://github.com/${owner_name}/${repo_name}/releases/download/v${binary_version}/${binary_name}_linux_${arch}.zip && unzip -jq ${binary_name}_linux_${arch}.zip ${binary_name} -d /usr/local/bin/
+  rm -f ${binary_name}_linux_${arch}.zip
+fi
+
+set +e
+
+echo "${binary_name} installation complete!"
