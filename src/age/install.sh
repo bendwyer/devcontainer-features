@@ -2,6 +2,20 @@
 
 set -e
 
+REQUIRED_PACKAGES=(ca-certificates curl jq)
+
+to_install=()
+for pkg in "${REQUIRED_PACKAGES[@]}"; do
+    dpkg -s "$pkg" > /dev/null 2>&1 || to_install+=("$pkg")
+done
+
+if (( ${#to_install[@]} > 0 )); then
+    echo "Installing missing packages: ${to_install[*]}"
+    apt-get update
+    apt-get install -y --no-install-recommends "${to_install[@]}"
+    rm -rf /var/lib/apt/lists/*
+fi
+
 VERSION="${VERSION:-latest}"
 binary_name="age"
 owner_name="FiloSottile"
