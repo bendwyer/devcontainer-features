@@ -1,5 +1,5 @@
 
-# tflint (via Github Releases) (tflint)
+# tflint (tflint)
 
 tflint is a pluggable Terraform linter.
 
@@ -7,7 +7,7 @@ tflint is a pluggable Terraform linter.
 
 ```json
 "features": {
-    "ghcr.io/bendwyer/devcontainer-features/tflint:1": {}
+    "ghcr.io/bendwyer/devcontainer-features/tflint:2": {}
 }
 ```
 
@@ -15,24 +15,28 @@ tflint is a pluggable Terraform linter.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Select the version to install. | string | latest |
+| version | Select the version to install. Anything that is not 'latest' must be in '#.#.#' format. | string | latest |
 
 
 ## OS Support
 
 This feature is tested against the following OS versions:
 
-- ubuntu:noble
+- ubuntu:24.04
 - debian:12
-- mcr.microsoft.com/devcontainers/base:ubuntu
-- mcr.microsoft.com/devcontainers/base:debian
+- mcr.microsoft.com/devcontainers/base:ubuntu24.04
+- mcr.microsoft.com/devcontainers/base:debian12
 
-Versions older than what are listed above are untested and therefore may not support this feature without additional packages.
+This feature is tested against the following architectures:
+
+- amd64
+- arm64
 
 ## Changelog
 
 | Version | Notes |
 | --- | --- |
+| 2.0.0 | Refactor install.sh |
 | 1.0.1 | Migrate to devcontainers-extra repo |
 | 1.0.0 | Initial release |
 
