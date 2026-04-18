@@ -2,6 +2,12 @@
 
 set -e
 
+if ! command -v pipx > /dev/null 2>&1; then
+    echo "ERROR: pipx not found. This feature requires the 'python' devcontainer feature with pipx tooling." >&2
+    echo "See: https://github.com/devcontainers/features/tree/main/src/python" >&2
+    exit 1
+fi
+
 VERSION="${VERSION:-latest}"
 package_name="zensical"
 

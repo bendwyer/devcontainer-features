@@ -1,5 +1,5 @@
 {
-  "name": "Zensical (via pipx)",
+  "name": "Zensical",
   "id": "zensical",
   "version": "1.0.0",
   "description": "Zensical is a modern static site generator designed to simplify building and maintaining project documentation.",
