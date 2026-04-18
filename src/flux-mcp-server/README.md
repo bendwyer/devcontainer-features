@@ -7,7 +7,7 @@ The Flux Model Context Protocol (MCP) Server connects AI assistants like Claude,
 
 ```json
 "features": {
-    "ghcr.io/bendwyer/devcontainer-features/flux-mcp-server:1": {}
+    "ghcr.io/bendwyer/devcontainer-features/flux-mcp-server:2": {}
 }
 ```
 
@@ -42,6 +42,7 @@ This feature is tested against the following architectures:
 
 | Version | Notes |
 | --- | --- |
+| 2.0.0 | Replace dependsOn with explicit required packages |
 | 1.0.2 | Update install and test scripts |
 | 1.0.1 | Surface curl errors |
 | 1.0.0 | Initial release |
