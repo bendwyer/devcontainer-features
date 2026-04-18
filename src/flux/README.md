@@ -7,7 +7,7 @@ Open and extensible continuous delivery solution for Kubernetes. Powered by GitO
 
 ```json
 "features": {
-    "ghcr.io/bendwyer/devcontainer-features/flux:1": {}
+    "ghcr.io/bendwyer/devcontainer-features/flux:2": {}
 }
 ```
 
@@ -42,6 +42,7 @@ This feature is tested against the following architectures:
 
 | Version | Notes |
 | --- | --- |
+| 2.0.0 | Refactor bash completion and required packages |
 | 1.1.0 | Add autocomplete and refactor install.sh |
 | 1.0.1 | Surface curl errors |
 | 1.0.0 | Initial release |
