@@ -17,5 +17,6 @@ This feature is tested against the following architectures:
 
 | Version | Notes |
 | --- | --- |
+| 2.0.0 | Refactor bash completion and required packages |
 | 1.0.1 | Simplify install script |
 | 1.0.0 | Initial release |
