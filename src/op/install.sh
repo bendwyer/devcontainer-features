@@ -2,7 +2,7 @@
 
 set -e
 
-REQUIRED_PACKAGES=(bash-completion ca-certificates curl unzip)
+REQUIRED_PACKAGES=(bash-completion ca-certificates curl sudo unzip)
 
 to_install=()
 for pkg in "${REQUIRED_PACKAGES[@]}"; do
@@ -35,16 +35,27 @@ else
   rm -f ${binary_name}_linux_${arch}_v${binary_version}.zip
 fi
 
-echo "Installing bash completion for ${binary_name}..."
-cat > /etc/profile.d/${binary_name}-completion.sh <<EOF
-if [ -r /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
+target_user="${_REMOTE_USER:-root}"
+echo "Installing bash completion for ${binary_name} for ${target_user}..."
+if [ "${target_user}" = "root" ]; then
+    target_home="/root"
+else
+    target_home="/home/${target_user}"
 fi
-if command -v ${binary_name} > /dev/null 2>&1; then
-    source <(${binary_name} completion bash)
+target_bashrc="${target_home}/.bashrc"
+mkdir -p "${target_home}"
+if [ ! -s "${target_bashrc}" ]; then
+    cp /etc/skel/.bashrc "${target_bashrc}" 2>/dev/null || touch "${target_bashrc}"
 fi
-EOF
-chmod +x /etc/profile.d/${binary_name}-completion.sh
+completion_line="source <(${binary_name} completion bash)"
+if ! grep -qF "${completion_line}" "${target_bashrc}" 2>/dev/null; then
+    {
+        echo ""
+        echo "# ${binary_name} completion (managed by ${binary_name} devcontainer feature)"
+        echo "${completion_line}"
+    } >> "${target_bashrc}"
+fi
+chown "${target_user}:${target_user}" "${target_home}" "${target_bashrc}" 2>/dev/null || true
 echo "Bash completion for ${binary_name} installed."
 
 set +e

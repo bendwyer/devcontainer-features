@@ -2,7 +2,7 @@
 
 set -e
 
-REQUIRED_PACKAGES=(ca-certificates curl jq unzip)
+REQUIRED_PACKAGES=(ca-certificates curl jq sudo unzip)
 
 to_install=()
 for pkg in "${REQUIRED_PACKAGES[@]}"; do
@@ -36,11 +36,9 @@ else
   echo "$binary_name installed."  
 fi
 
-echo "Installing bash completion for ${binary_name}..."
-cat > /etc/profile.d/${binary_name}-completion.sh <<'EOF'
-complete -C /usr/local/bin/packer packer
-EOF
-chmod +x /etc/profile.d/${binary_name}-completion.sh
+target_user="${_REMOTE_USER:-root}"
+echo "Installing bash completion for ${binary_name} for ${target_user}..."
+sudo -u "${target_user}" -H bash -c "${binary_name} -autocomplete-install" 2>/dev/null || true
 echo "Bash completion for ${binary_name} installed."
 
 set +e
