@@ -1,5 +1,5 @@
 
-# Ansible MCP Server (via npm) (ansible-mcp-server)
+# Ansible MCP Server (ansible-mcp-server)
 
 The Ansible Development Tools MCP (Model Context Protocol) Server enables AI assistants and language models to interact with Ansible tooling through a standardized protocol.
 

@@ -1,5 +1,5 @@
 
-# Zensical (via pipx) (zensical)
+# Zensical (zensical)
 
 Zensical is a modern static site generator designed to simplify building and maintaining project documentation.
 
