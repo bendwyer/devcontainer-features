@@ -2,8 +2,21 @@
 
 set -e
 
+REQUIRED_PACKAGES=(ca-certificates curl jq sudo unzip)
+
+to_install=()
+for pkg in "${REQUIRED_PACKAGES[@]}"; do
+    dpkg -s "$pkg" > /dev/null 2>&1 || to_install+=("$pkg")
+done
+
+if (( ${#to_install[@]} > 0 )); then
+    echo "Installing missing packages: ${to_install[*]}"
+    apt-get update
+    apt-get install -y --no-install-recommends "${to_install[@]}"
+    rm -rf /var/lib/apt/lists/*
+fi
+
 VERSION="${VERSION:-latest}"
-AUTOCOMPLETE="${AUTOCOMPLETE:-true}"
 binary_name="packer"
 
 arch=$(uname -m | sed 's/aarch64/arm64/; s/x86_64/amd64/')
@@ -20,40 +33,13 @@ else
   fi
   curl -sSLO https://releases.hashicorp.com/${binary_name}/${binary_version}/${binary_name}_${binary_version}_linux_${arch}.zip && unzip -jq ${binary_name}_${binary_version}_linux_${arch}.zip ${binary_name} -d /usr/local/bin/
   rm -f ${binary_name}_${binary_version}_linux_${arch}.zip
+  echo "$binary_name installed."  
 fi
 
-if [ "${AUTOCOMPLETE}" = "true" ]; then
-  echo "Installing ${binary_name} bash autocompletion..."
-  sudo -iu "$_REMOTE_USER" <<EOF
-    # https://github.com/devcontainers-contrib/features/blob/9a1d24b27b2d1ea8916ebe49c9ce674375dced27/src/pulumi/install.sh
-    set -eo pipefail
-    if [ "$_REMOTE_USER" == "root" ]; then
-      USER_LOCATION="/root"
-      echo "$_REMOTE_USER HOME is \$USER_LOCATION"
-    else
-      USER_LOCATION="/home/$_REMOTE_USER"
-      echo "$_REMOTE_USER HOME is \$USER_LOCATION"
-    fi
-    cd \$USER_LOCATION
-    echo "Changed to \$USER_LOCATION"
-    if [ -n "$($SHELL -c 'echo $BASH_VERSION')" ]; then
-      echo "$SHELL detected"
-      if [ ! -f "\$USER_LOCATION/.bashrc" ] || [ ! -s "\$USER_LOCATION/.bashrc" ]; then
-        echo ".bashrc missing"
-        sudo cp  /etc/skel/.bashrc "\$USER_LOCATION/.bashrc"
-        echo ".bashrc copied"
-      fi
-      if  [ ! -f "\$USER_LOCATION/.profile" ] || [ ! -s "\$USER_LOCATION/.profile" ]; then
-        echo ".profile missing"
-        sudo cp  /etc/skel/.profile "\$USER_LOCATION/.profile"
-        echo ".profile copied"
-      fi
-      $binary_name -autocomplete-install
-      . \$USER_LOCATION/.bashrc
-      echo "$binary_name bash autocompletion installed successfully!"
-    fi
-EOF
-fi
+target_user="${_REMOTE_USER:-root}"
+echo "Installing bash completion for ${binary_name} for ${target_user}..."
+sudo -u "${target_user}" -H bash -c "${binary_name} -autocomplete-install" 2>/dev/null || true
+echo "Bash completion for ${binary_name} installed."
 
 set +e
 

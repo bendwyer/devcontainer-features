@@ -2,6 +2,20 @@
 
 set -e
 
+REQUIRED_PACKAGES=(ca-certificates curl jq sudo unzip)
+
+to_install=()
+for pkg in "${REQUIRED_PACKAGES[@]}"; do
+    dpkg -s "$pkg" > /dev/null 2>&1 || to_install+=("$pkg")
+done
+
+if (( ${#to_install[@]} > 0 )); then
+    echo "Installing missing packages: ${to_install[*]}"
+    apt-get update
+    apt-get install -y --no-install-recommends "${to_install[@]}"
+    rm -rf /var/lib/apt/lists/*
+fi
+
 VERSION="${VERSION:-latest}"
 binary_name="terraform"
 
@@ -21,6 +35,11 @@ else
   rm -f ${binary_name}_${binary_version}_linux_${arch}.zip
   echo "$binary_name installed."
 fi
+
+target_user="${_REMOTE_USER:-root}"
+echo "Installing bash completion for ${binary_name} for ${target_user}..."
+sudo -u "${target_user}" -H bash -c "${binary_name} -install-autocomplete" 2>/dev/null || true
+echo "Bash completion for ${binary_name} installed."
 
 set +e
 

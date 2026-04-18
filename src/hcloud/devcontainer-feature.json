@@ -1,7 +1,7 @@
 {
   "name": "Hetzner Cloud CLI",
   "id": "hcloud",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A command-line interface for Hetzner Cloud.",
   "options": {
     "version": {
@@ -13,9 +13,5 @@
       ],
       "type": "string"
     }
-  },
-  "dependsOn": {
-    "ghcr.io/devcontainers/features/common-utils": {}
-  },
-  "postCreateCommand": "echo 'source /usr/share/bash-completion/bash_completion; source <(hcloud completion bash)' >> ~/.bashrc"
+  }
 }
