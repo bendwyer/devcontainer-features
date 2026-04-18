@@ -2,6 +2,20 @@
 
 set -e
 
+REQUIRED_PACKAGES=(bash-completion curl unzip)
+
+to_install=()
+for pkg in "${REQUIRED_PACKAGES[@]}"; do
+    dpkg -s "$pkg" > /dev/null 2>&1 || to_install+=("$pkg")
+done
+
+if (( ${#to_install[@]} > 0 )); then
+    echo "Installing missing packages: ${to_install[*]}"
+    apt-get update
+    apt-get install -y --no-install-recommends "${to_install[@]}"
+    rm -rf /var/lib/apt/lists/*
+fi
+
 VERSION="${VERSION:-latest}"
 binary_name="op"
 
@@ -20,6 +34,18 @@ else
   curl -sSLO https://cache.agilebits.com/dist/1P/op2/pkg/v${binary_version}/${binary_name}_linux_${arch}_v${binary_version}.zip && unzip -jq ${binary_name}_linux_${arch}_v${binary_version}.zip ${binary_name} -d /usr/local/bin/
   rm -f ${binary_name}_linux_${arch}_v${binary_version}.zip
 fi
+
+echo "Installing bash completion for ${binary_name}..."
+cat > /etc/profile.d/${binary_name}-completion.sh <<EOF
+if [ -r /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+fi
+if command -v ${binary_name} > /dev/null 2>&1; then
+    source <(${binary_name} completion bash)
+fi
+EOF
+chmod +x /etc/profile.d/${binary_name}-completion.sh
+echo "Bash completion for ${binary_name} installed."
 
 set +e
 

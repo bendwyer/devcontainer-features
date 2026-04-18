@@ -1,7 +1,7 @@
 {
-  "id": "flux",
-  "version": "1.1.0",
   "name": "Flux",
+  "id": "flux",
+  "version": "2.0.0",
   "documentationURL": "https://fluxcd.io/flux/cmd/",
   "description": "Open and extensible continuous delivery solution for Kubernetes. Powered by GitOps Toolkit.",
   "options": {
@@ -20,9 +20,5 @@
         "ms-kubernetes-tools.vscode-kubernetes-tools"
       ]
     }
-  },
-  "dependsOn": {
-    "ghcr.io/devcontainers/features/common-utils": {}
-  },
-  "postCreateCommand": "echo 'source /usr/share/bash-completion/bash_completion; source <(flux completion bash)' >> ~/.bashrc"
+  }
 }
