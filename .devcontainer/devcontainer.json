@@ -30,7 +30,7 @@
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers/features/github-cli": {},
     "ghcr.io/bendwyer/devcontainer-features/claude-code:5": {},
-    "ghcr.io/bendwyer/devcontainer-features/github-cli-extras:1": {},
+    "ghcr.io/bendwyer/devcontainer-features/github-cli-extras:2": {},
     "ghcr.io/bendwyer/devcontainer-features/github-mcp-server:2": {}
   },
   "remoteUser": "node",
