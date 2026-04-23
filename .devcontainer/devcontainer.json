@@ -31,7 +31,7 @@
     "ghcr.io/devcontainers/features/github-cli": {},
     "ghcr.io/bendwyer/devcontainer-features/claude-code:4": {},
     "ghcr.io/bendwyer/devcontainer-features/github-cli-extras:1": {},
-    "ghcr.io/bendwyer/devcontainer-features/github-mcp-server:1": {}
+    "ghcr.io/bendwyer/devcontainer-features/github-mcp-server:2": {}
   },
   "remoteUser": "node",
   "updateContentCommand": "npm install -g @devcontainers/cli"
