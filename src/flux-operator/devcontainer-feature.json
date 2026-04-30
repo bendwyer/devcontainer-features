@@ -1,0 +1,25 @@
+{
+  "name": "Flux Operator CLI",  
+  "id": "flux-operator",
+  "version": "1.0.0",
+  "documentationURL": "https://fluxoperator.dev/docs/guides/cli/",
+  "description": "The Flux Operator CLI is a command line tool that allows you to manage the Flux Operator resources in your Kubernetes clusters. It provides a convenient way to interact with the operator and perform various operations.",
+  "options": {
+    "version": {
+      "default": "latest",
+      "description": "Select the version to install. Anything that is not 'latest' must be in '#.#.#' format.",
+      "proposals": [
+        "latest",
+        "0.48.0"
+      ],
+      "type": "string"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-kubernetes-tools.vscode-kubernetes-tools"
+      ]
+    }
+  }
+}

@@ -3,6 +3,7 @@ age: ./**/age/**
 ansible-mcp-server: ./**/ansible-mcp-server/**
 claude-code: ./**/claude-code/**
 flux: ./**/flux/**
+flux-operator: ./**/flux-operator/**
 flux-operator-mcp-server: ./**/flux-operator-mcp-server/**
 github-cli-extras: ./**/github-cli-extras/**
 github-mcp-server: ./**/github-mcp-server/**
