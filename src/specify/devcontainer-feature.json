@@ -1,0 +1,27 @@
+{
+  "name": "Specify",
+  "id": "specify",
+  "version": "1.0.0",
+  "description": "An open source toolkit that allows you to focus on product scenarios and predictable outcomes instead of vibe coding every piece from scratch.",
+  "documentationURL": "https://github.github.com/spec-kit/",
+  "options": {
+    "version": {
+      "default": "latest",
+      "description": "Select the version to install. Anything that is not 'latest' must be in '#.#.#' format.",
+      "proposals": [
+        "latest",
+        "0.0.16",
+        "0.0.*"
+      ],
+      "type": "string"
+    }
+  },
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/python": {
+      "installTools": "true",
+      "toolsToInstall": [
+        "virtualenv"
+      ]
+    }
+  }
+}

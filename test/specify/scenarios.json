@@ -1,0 +1,10 @@
+{
+  "specify_version": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian12",
+    "features": {
+      "specify": {
+        "version": "0.8.0"
+      }
+    }
+  }
+}
