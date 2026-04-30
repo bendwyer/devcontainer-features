@@ -1,0 +1,32 @@
+{
+  "features": {
+    "ghcr.io/bendwyer/devcontainer-features/claude-code:5": {
+      "version": "5.0.0",
+      "resolved": "ghcr.io/bendwyer/devcontainer-features/claude-code@sha256:c5736bd3ea2227e95e364537edf50381a12becb79370dc7865e7d234711b594c",
+      "integrity": "sha256:c5736bd3ea2227e95e364537edf50381a12becb79370dc7865e7d234711b594c"
+    },
+    "ghcr.io/bendwyer/devcontainer-features/github-cli-extras:2": {
+      "version": "2.0.0",
+      "resolved": "ghcr.io/bendwyer/devcontainer-features/github-cli-extras@sha256:a6e63dc189ec8c5cf1093ffe7ebda4ce9e6b5d05d74ff40d877cb751768ff0b3",
+      "integrity": "sha256:a6e63dc189ec8c5cf1093ffe7ebda4ce9e6b5d05d74ff40d877cb751768ff0b3",
+      "dependsOn": [
+        "ghcr.io/devcontainers/features/github-cli"
+      ]
+    },
+    "ghcr.io/bendwyer/devcontainer-features/github-mcp-server:2": {
+      "version": "2.0.0",
+      "resolved": "ghcr.io/bendwyer/devcontainer-features/github-mcp-server@sha256:761f9c37d8220ca020b6ff70241cb6ac0e9c7466884e03299ee1122b4610a9f4",
+      "integrity": "sha256:761f9c37d8220ca020b6ff70241cb6ac0e9c7466884e03299ee1122b4610a9f4"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "2.16.1",
+      "resolved": "ghcr.io/devcontainers/features/docker-in-docker@sha256:ce078b7bf7d9ef3bcb9813b32103795d8d72172446890b64772cbe1dec6baafd",
+      "integrity": "sha256:ce078b7bf7d9ef3bcb9813b32103795d8d72172446890b64772cbe1dec6baafd"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "1.1.0",
+      "resolved": "ghcr.io/devcontainers/features/github-cli@sha256:d22f50b70ed75339b4eed1ba9ecde3a1791f90e88d37936517e3bace0bbad671",
+      "integrity": "sha256:d22f50b70ed75339b4eed1ba9ecde3a1791f90e88d37936517e3bace0bbad671"
+    }
+  }
+}
