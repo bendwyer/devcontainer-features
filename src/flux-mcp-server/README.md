@@ -1,5 +1,5 @@
 
-# Flux MCP Server (flux-mcp-server)
+# Flux Operator MCP Server (flux-operator-mcp-server)
 
 The Flux Model Context Protocol (MCP) Server connects AI assistants like Claude, Cursor, GitHub Copilot, and others directly to your Kubernetes clusters running Flux Operator, enabling seamless interaction through natural language.
 
@@ -7,7 +7,7 @@ The Flux Model Context Protocol (MCP) Server connects AI assistants like Claude,
 
 ```json
 "features": {
-    "ghcr.io/bendwyer/devcontainer-features/flux-mcp-server:2": {}
+    "ghcr.io/bendwyer/devcontainer-features/flux-operator-mcp-server:3": {}
 }
 ```
 
@@ -42,6 +42,7 @@ This feature is tested against the following architectures:
 
 | Version | Notes |
 | --- | --- |
+| 3.0.0 | Rename feature |
 | 2.0.0 | Replace dependsOn with explicit required packages |
 | 1.0.2 | Update install and test scripts |
 | 1.0.1 | Surface curl errors |
@@ -50,4 +51,4 @@ This feature is tested against the following architectures:
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/bendwyer/devcontainer-features/blob/main/src/flux-mcp-server/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/bendwyer/devcontainer-features/blob/main/src/flux-operator-mcp-server/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
