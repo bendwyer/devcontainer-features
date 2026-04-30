@@ -1,5 +1,5 @@
 {
-  "name": "Specify",
+  "name": "Specify CLI",
   "id": "specify",
   "version": "1.0.0",
   "description": "An open source toolkit that allows you to focus on product scenarios and predictable outcomes instead of vibe coding every piece from scratch.",
@@ -10,8 +10,7 @@
       "description": "Select the version to install. Anything that is not 'latest' must be in '#.#.#' format.",
       "proposals": [
         "latest",
-        "0.0.16",
-        "0.0.*"
+        "0.8.3"
       ],
       "type": "string"
     }
