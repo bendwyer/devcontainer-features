@@ -17,6 +17,7 @@ This feature is tested against the following architectures:
 
 | Version | Notes |
 | --- | --- |
+| 3.0.0 | Rename feature |
 | 2.0.0 | Replace dependsOn with explicit required packages |
 | 1.0.2 | Update install and test scripts |
 | 1.0.1 | Surface curl errors |
