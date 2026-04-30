@@ -1,0 +1,10 @@
+{
+  "flux_operator_version": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian12",
+    "features": {
+      "flux-operator": {
+        "version": "0.40.0"
+      }
+    }
+  }
+}
