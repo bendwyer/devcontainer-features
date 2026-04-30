@@ -16,6 +16,7 @@ omnictl: ./**/omnictl/**
 op: ./**/op/**
 packer: ./**/packer/**
 sops: ./**/sops/**
+specify: ./**/specify/**
 talosctl: ./**/talosctl/**
 terraform: ./**/terraform/**
 terraform-mcp-server: ./**/terraform-mcp-server/**
