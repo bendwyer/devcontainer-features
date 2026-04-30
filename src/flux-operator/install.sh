@@ -2,7 +2,7 @@
 
 set -e
 
-REQUIRED_PACKAGES=(ca-certificates curl jq)
+REQUIRED_PACKAGES=(bash-completion ca-certificates curl jq)
 
 to_install=()
 for pkg in "${REQUIRED_PACKAGES[@]}"; do
