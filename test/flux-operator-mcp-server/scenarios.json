@@ -1,8 +1,8 @@
 {
-  "flux_mcp_server_version": {
+  "flux_operator_mcp_server_version": {
     "image": "mcr.microsoft.com/devcontainers/base:debian12",
     "features": {
-      "flux-mcp-server": {
+      "flux-operator-mcp-server": {
         "version": "0.27.0"
       }
     }
