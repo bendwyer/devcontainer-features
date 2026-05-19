@@ -1,0 +1,18 @@
+{
+  "name": "AWS CLI Extras",
+  "id": "aws-cli-extras",
+  "version": "1.0.0",
+  "documentationURL": "https://github.com/bendwyer/devcontainer-features/tree/main/src/aws-cli-extras",
+  "description": "Adds data persistence for the aws-cli dev container feature.",
+  "options": {},
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/aws-cli": {}
+  },
+  "mounts": [
+    {
+      "source": "${containerWorkspaceFolderBasename}-aws-cli",
+      "target": "/var/lib/aws",
+      "type": "volume"
+    }
+  ]
+}
