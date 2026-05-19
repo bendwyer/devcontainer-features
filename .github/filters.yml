@@ -2,6 +2,7 @@
 age: ./**/age/**
 ansible-mcp-server: ./**/ansible-mcp-server/**
 aws-cli-extras: ./**/aws-cli-extras/**
+cfn-lint: ./**/cfn-lint/**
 claude-code: ./**/claude-code/**
 flux: ./**/flux/**
 flux-operator: ./**/flux-operator/**
