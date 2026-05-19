@@ -1,6 +1,6 @@
 {
   "name": "{containerWorkspaceFolderBasename}",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:4-22-bookworm",
   "customizations": {
     "vscode": {
       "settings": {
@@ -27,11 +27,12 @@
     }
   },
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "moby": false
+    },
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/bendwyer/devcontainer-features/claude-code:5": {},
-    "ghcr.io/bendwyer/devcontainer-features/github-cli-extras:2": {},
-    "ghcr.io/bendwyer/devcontainer-features/github-mcp-server:2": {}
+    "ghcr.io/bendwyer/devcontainer-features/github-cli-extras:2": {}
   },
   "remoteUser": "node",
   "updateContentCommand": "npm install -g @devcontainers/cli"
