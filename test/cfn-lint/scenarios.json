@@ -1,0 +1,10 @@
+{
+  "cfn_lint_version": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian12",
+    "features": {
+      "cfn-lint": {
+        "version": "1.45.0"
+      }
+    }
+  }
+}
