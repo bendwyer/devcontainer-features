@@ -1,0 +1,21 @@
+{
+  "name": "TypeScript",
+  "id": "typescript",
+  "version": "1.0.0",
+  "description": "TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.",
+  "documentationURL": "https://www.typescriptlang.org/docs",
+  "options": {
+    "version": {
+      "default": "latest",
+      "description": "Select the version to install. Anything that is not 'latest' must be in '#.#.#' format.",
+      "proposals": [
+        "latest",
+        "6.0.3"
+      ],
+      "type": "string"
+    }
+  },
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/node": {}
+  }
+}
