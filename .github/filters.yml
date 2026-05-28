@@ -24,4 +24,5 @@ talosctl: ./**/talosctl/**
 terraform: ./**/terraform/**
 terraform-mcp-server: ./**/terraform-mcp-server/**
 tflint: ./**/tflint/**
+typescript: ./**/typescript/**
 zensical: ./**/zensical/**
