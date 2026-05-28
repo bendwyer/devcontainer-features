@@ -1,0 +1,10 @@
+{
+  "typescript_version": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian12",
+    "features": {
+      "typescript": {
+        "version": "5.9.3"
+      }
+    }
+  }
+}
